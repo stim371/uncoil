@@ -1,7 +1,7 @@
 source :rubygems
 
 gem 'rake'
-gem 'echoe'
+gem 'bitly'
 
 group :test do
   gem 'rspec'

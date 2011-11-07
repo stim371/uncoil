@@ -1,8 +1,8 @@
+# A sample Guardfile
+# More info at https://github.com/guard/guard#readme
 
-desc "`rake` will default to running `rake:spec`"
-task :default => :spec
-
-desc "Run all the rspec examples"
-task :spec do
-  system "bundle exec rspec -c spec"
+guard 'rspec', :version => 2, :cli => "--color --format d" do
+  watch(%r{^spec/.+_spec\.rb$})
+  watch(%r{^lib/(.+)\.rb$})     { "spec" }
+  watch('spec/spec_helper.rb')  { "spec" }
 end
