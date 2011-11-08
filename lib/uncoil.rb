@@ -3,9 +3,10 @@
 require 'bitly'
 require 'open-uri'
 require 'net/http'
+require 'json'
 
 BITLY_API_KEY = {:user => "stim371", :key => "R_7a6f6d845668a8a7bb3e0c80ee3c28d6"}
-ROOT_URL = "http://is.gd/forward.php?format=json&callback=myfunction&shorturl="
+ISGD_ROOT_URL = "http://is.gd/forward.php?format=json&shorturl="
 USER_AGENT = "is_gd ruby library http://is-gd.rubyforge.org"
 
 class Uncoil
@@ -21,10 +22,25 @@ class Uncoil
       end
     end
 
-    def expand short_url
+    def clean_url short_url
       short_url = "http://"  << short_url unless short_url =~ /^https?:\/\//
       short_url.chop! if short_url[-1] == "/"
       short_url
+    end
+
+    def expand short_url
+      short_url = clean_url(short_url)
+      domain = identify_domain(short_url)
+      
+      if ["bit.ly", "j.mp", "bitlypro.com"].include? domain
+        return uncoil_bitly(short_url)
+      elsif check_bitly_pro(domain)
+        return uncoil_bitly(short_url)
+      elsif domain == "is.gd"
+        return uncoil_isgd(short_url)
+      else
+        return uncoil_other(short_url)
+      end  
     end
 
     def check_bitly_pro url_domain, api_key = BITLY_API_KEY
@@ -38,14 +54,21 @@ class Uncoil
     end
 
     def uncoil_isgd short_url
-
-      @long_url = open(ROOT_URL + "#{short_url}") { |file| file.read }
-      #need to figure out how to extract text
-      #is there an easier way than just parsing it?
+      reply = open(ISGD_ROOT_URL + "#{short_url}") { |file| file.read }
+      JSON.parse(reply)["url"]
     end
 
     def uncoil_other short_url, depth = 10
+      url = URI.encode(short_url)
 
+      response = Net::HTTP.get_response(URI.parse(url))
+      
+      case response
+        when Net::HTTPSuccess     then url
+        when Net::HTTPRedirection then uncoil_other(response['location'], depth - 1)
+        #when Net::HTTPClientError then raise ClientServError
+        #when Net::HTTPServerError then raise ClientServError
+      end
     end
 
   end

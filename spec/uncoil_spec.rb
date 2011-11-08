@@ -1,4 +1,4 @@
-require_relative 'spec_helper'
+#require_relative 'spec_helper'
 require_relative '../lib/uncoil.rb'
 
 describe Uncoil do
@@ -9,33 +9,37 @@ describe Uncoil do
       fail
     end
     
+    it "should not allow access to the bitly-focused methods without an api key" do
+      fail
+    end
+    
   end
   
   context "when cleaning up the url" do
     
     it "should add the prefix if none exists" do
-      Uncoil.expand("cnn.com").should eq "http://cnn.com"
-      Uncoil.expand("cnn.com/").should eq "http://cnn.com"
+      Uncoil.clean_url("cnn.com").should eq "http://cnn.com"
+      Uncoil.clean_url("cnn.com/").should eq "http://cnn.com"
     end
     
     it "should not add the prefix if one exists" do
-      Uncoil.expand("http://cnn.com").should eq "http://cnn.com"
-      Uncoil.expand("http://cnn.com/").should eq "http://cnn.com"
+      Uncoil.clean_url("http://cnn.com").should eq "http://cnn.com"
+      Uncoil.clean_url("http://cnn.com/").should eq "http://cnn.com"
     end
     
     it "should not add the prefix if a secure one exists" do
-      Uncoil.expand("https://cnn.com").should eq "https://cnn.com"
-      Uncoil.expand("https://cnn.com/").should eq "https://cnn.com"
+      Uncoil.clean_url("https://cnn.com").should eq "https://cnn.com"
+      Uncoil.clean_url("https://cnn.com/").should eq "https://cnn.com"
     end
     
     it "should remove the trailing slash" do
-      Uncoil.expand("http://cnn.com/").should eq "http://cnn.com"
-      Uncoil.expand("cnn.com/").should eq "http://cnn.com"
+      Uncoil.clean_url("http://cnn.com/").should eq "http://cnn.com"
+      Uncoil.clean_url("cnn.com/").should eq "http://cnn.com"
     end
     
     it "should not remove characters on the end that aren't slashes" do
-      Uncoil.expand("http://cnn.com").should eq "http://cnn.com"
-      Uncoil.expand("cnn.com").should eq "http://cnn.com"
+      Uncoil.clean_url("http://cnn.com").should eq "http://cnn.com"
+      Uncoil.clean_url("cnn.com").should eq "http://cnn.com"
     end
     
   end
@@ -66,63 +70,81 @@ describe Uncoil do
     
   end
   
-  context "when trying to undo a bit.ly link" do
+  describe "when using the submethods" do
     
-    # it "should encode the url" do
-    #   fail
-    # end
+    context "when trying to undo a bit.ly link" do
     
-    it "should bring back the correct long link" do
-      Uncoil.uncoil_bitly("http://bit.ly/2EEjBl").should eq "http://www.cnn.com/"
+      # it "should encode the url" do
+      #   fail
+      # end
+    
+      it "should bring back the correct long link" do
+        Uncoil.uncoil_bitly("http://bit.ly/2EEjBl").should eq "http://www.cnn.com/"
+      end
+    
+      it "should catch errors for broken links" do
+        fail
+      end
+    
     end
+  
+    context "when trying to undo a bit.ly pro link" do
     
-    it "should catch errors for broken links" do
-      fail
+      it "should bring back the correct long link" do
+        Uncoil.uncoil_bitly("http://cs.pn/vsZpra").should eq "http://www.c-spanvideo.org/program/CainNew"
+      end
+    
+      it "should catch errors for broken links" do
+        fail
+      end
+    
     end
+  
+    context "when trying to undo an is.gd link" do
     
+      # it "should encode the url" do
+      #   fail
+      # end
+    
+      it "should bring back the correct long link" do
+        Uncoil.uncoil_isgd("http://is.gd/gbKNRq").should eq "http://www.google.com"
+      end
+    
+    end
+  
+    context "when trying to undo from other services" do
+    
+      # it "should encode the url" do
+      #   fail
+      # end
+    
+      it "should bring back the correct long link" do
+         Uncoil.uncoil_other("http://tinyurl.com/736swvl").should eq "http://www.chinadaily.com.cn/usa/business/2011-11/08/content_14057648.htm"
+      end
+    
+      it "should catch socket errors for non links" do
+        fail
+      end
+    
+    end
   end
   
-  context "when trying to undo a bit.ly pro link" do
+  context "when using the main expand method" do
     
-    it "should bring back the correct long link" do
-      fail
-      #Uncoil.uncoil_bitly("").should eq ""
+    it "should expand bitly correctly" do
+      Uncoil.expand("http://bit.ly/2EEjBl").should eq "http://www.cnn.com/"
     end
     
-    it "should catch errors for broken links" do
-      fail
+    it "should expand bitlypro domains correctly" do
+      Uncoil.expand("http://cs.pn/vsZpra").should eq "http://www.c-spanvideo.org/program/CainNew"
     end
     
-  end
-  
-  context "when trying to undo an is.gd link" do
-    
-    # it "should encode the url" do
-    #   fail
-    # end
-    
-    it "should bring back the correct long link" do
-      Uncoil.uncoil_isgd("http://is.gd/5JJNDX").should eq "http://www.google.com"
+    it "should expand isgd domains correctly" do
+      Uncoil.expand("http://is.gd/gbKNRq").should eq "http://www.google.com"
     end
     
-  end
-  
-  context "when trying to undo from other services" do
-    
-    # it "should encode the url" do
-    #   fail
-    # end
-    
-    it "should bring back the correct long link" do
-      fail
-    end
-    
-    it "should go until it gets a 200 response" do
-      fail
-    end
-    
-    it "should catch socket errors for non links" do
-      fail
+    it "should expand other shortened urls correctly" do
+      Uncoil.expand("http://tinyurl.com/736swvl").should eq "http://www.chinadaily.com.cn/usa/business/2011-11/08/content_14057648.htm"
     end
     
   end
