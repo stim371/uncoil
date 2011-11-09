@@ -3,7 +3,7 @@ require_relative '../lib/uncoil.rb'
 
 describe Uncoil do
   
-  subject { Uncoil.new }
+  subject { Uncoil.new(:bitlyuser => "stim371", :bitlykey => "R_7a6f6d845668a8a7bb3e0c80ee3c28d6")}
   
   context "when expanding any link" do
     
