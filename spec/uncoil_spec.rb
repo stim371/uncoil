@@ -141,6 +141,10 @@ describe Uncoil do
       subject.expand("http://cs.pn/vsZpra").should eq "http://www.c-spanvideo.org/program/CainNew"
     end
     
+    it "should raise an error if no bitly auth criteria was put in at the beginning" do
+      Uncoil.new.expand("http://bit.ly/2EEjBl").should raise_error
+    end
+    
     it "should expand isgd domains correctly" do
       subject.expand("http://is.gd/gbKNRq").should eq "http://www.google.com"
     end
@@ -151,6 +155,11 @@ describe Uncoil do
     
     it "should also take an array of quotes" do
       subject.expand(["http://bit.ly/2EEjBl","http://is.gd/gbKNRq","http://cs.pn/vsZpra"]).should eq ["http://www.cnn.com/","http://www.google.com","http://www.c-spanvideo.org/program/CainNew"]
+    end
+    
+    it "should not expand urls from domains that fail" do
+      subject.expand("http://xhref.com/").should eq nil
+      #this should be updated when we output stuff in hashes
     end
     
   end
