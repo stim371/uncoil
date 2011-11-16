@@ -1,5 +1,8 @@
-#require_relative 'spec_helper'
-require_relative '../lib/uncoil.rb'
+require "rubygems"
+require "bundler/setup"
+require 'simplecov'
+SimpleCov.start
+require File.expand_path(File.dirname(__FILE__) + '/../lib/uncoil.rb')
 
 describe Uncoil do
   
@@ -53,7 +56,7 @@ describe Uncoil do
     end
     
     it "should throw an error if the url is too short" do
-      subject.identify_domain("bit.ly").should raise_error
+      lambda{subject.identify_domain("bit.ly")}.should raise_error
     end
   
   end
@@ -76,16 +79,8 @@ describe Uncoil do
     
     context "when trying to undo a bit.ly link" do
     
-      # it "should encode the url" do
-      #   fail
-      # end
-    
       it "should bring back the correct long link" do
         subject.uncoil_bitly("http://bit.ly/2EEjBl").should eq "http://www.cnn.com/"
-      end
-    
-      it "should catch errors for broken links" do
-        fail
       end
     
     end
@@ -96,17 +91,9 @@ describe Uncoil do
         subject.uncoil_bitly("http://cs.pn/vsZpra").should eq "http://www.c-spanvideo.org/program/CainNew"
       end
     
-      it "should catch errors for broken links" do
-        fail
-      end
-    
     end
   
     context "when trying to undo an is.gd link" do
-    
-      # it "should encode the url" do
-      #   fail
-      # end
     
       it "should bring back the correct long link" do
         subject.uncoil_isgd("http://is.gd/gbKNRq").should eq "http://www.google.com"
@@ -116,16 +103,8 @@ describe Uncoil do
   
     context "when trying to undo from other services" do
     
-      # it "should encode the url" do
-      #   fail
-      # end
-    
       it "should bring back the correct long link" do
          subject.uncoil_other("http://tinyurl.com/736swvl").should eq "http://www.chinadaily.com.cn/usa/business/2011-11/08/content_14057648.htm"
-      end
-    
-      it "should catch socket errors for non links" do
-        fail
       end
     
     end
@@ -134,32 +113,39 @@ describe Uncoil do
   context "when using the main expand method" do
     
     it "should expand bitly correctly" do
-      subject.expand("http://bit.ly/2EEjBl").should eq "http://www.cnn.com/"
+      subject.expand("http://bit.ly/2EEjBl").should eq Hash[:long_url => "http://www.cnn.com/", :short_url => "http://bit.ly/2EEjBl", :error => nil]
     end
     
     it "should expand bitlypro domains correctly" do
-      subject.expand("http://cs.pn/vsZpra").should eq "http://www.c-spanvideo.org/program/CainNew"
-    end
-    
-    it "should raise an error if no bitly auth criteria was put in at the beginning" do
-      Uncoil.new.expand("http://bit.ly/2EEjBl").should raise_error
+      subject.expand("http://cs.pn/vsZpra").should eq Hash[:long_url => "http://www.c-spanvideo.org/program/CainNew", :short_url => "http://cs.pn/vsZpra", :error => nil]
     end
     
     it "should expand isgd domains correctly" do
-      subject.expand("http://is.gd/gbKNRq").should eq "http://www.google.com"
+      subject.expand("http://is.gd/gbKNRq").should eq Hash[:long_url => "http://www.google.com", :short_url => "http://is.gd/gbKNRq", :error => nil]
     end
     
     it "should expand other shortened urls correctly" do
-      subject.expand("http://tinyurl.com/736swvl").should eq "http://www.chinadaily.com.cn/usa/business/2011-11/08/content_14057648.htm"
+      subject.expand("http://tinyurl.com/736swvl").should eq Hash[:long_url => "http://www.chinadaily.com.cn/usa/business/2011-11/08/content_14057648.htm", :short_url => "http://tinyurl.com/736swvl", :error => nil]
     end
     
     it "should also take an array of quotes" do
-      subject.expand(["http://bit.ly/2EEjBl","http://is.gd/gbKNRq","http://cs.pn/vsZpra"]).should eq ["http://www.cnn.com/","http://www.google.com","http://www.c-spanvideo.org/program/CainNew"]
+      subject.expand(["http://bit.ly/2EEjBl","http://is.gd/gbKNRq","http://cs.pn/vsZpra"]).should eq [Hash[:long_url => "http://www.cnn.com/", :short_url => "http://bit.ly/2EEjBl", :error => nil], Hash[:long_url => "http://www.google.com", :short_url => "http://is.gd/gbKNRq", :error => nil],Hash[:long_url => "http://www.c-spanvideo.org/program/CainNew", :short_url => "http://cs.pn/vsZpra", :error => nil]]
     end
     
-    it "should not expand urls from domains that fail" do
-      subject.expand("http://xhref.com/").should eq nil
-      #this should be updated when we output stuff in hashes
+    context "and entering input that will break the search" do
+      
+      it "should raise an error if no bitly auth criteria was put in at the beginning" do
+        lambda { Uncoil.new.expand("http://bit.ly/2EEjBl") }.should raise_error
+      end
+      
+      it "should raise an error if the domain is in the not-supported array" do
+        lambda { subject.expand("http://xhref.com/110109") }.should raise_error
+      end
+      
+      it "should raise an error for non-urls" do
+        subject.expand("a").should eq ""
+      end
+      
     end
     
   end

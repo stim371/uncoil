@@ -5,21 +5,18 @@ require 'open-uri'
 require 'net/http'
 require 'json'
 
-#BITLY_API_KEY = {:user => "stim371", :key => "R_7a6f6d845668a8a7bb3e0c80ee3c28d6"}
-ISGD_ROOT_URL = "http://is.gd/forward.php?format=json&shorturl="
-USER_AGENT = "is_gd ruby library http://is-gd.rubyforge.org"
-BITLY_DOM_ARRAY = %w[bit.ly, j.mp, bitlypro.com]
-FAILING_API_DOMAINS = %w[xhref.com]
-
 class Uncoil
-    
-    def initialize( options = {} )
-      #@api_available = nil
-      #if options
-        Bitly.use_api_version_3
-        @bitly_instance = Bitly.new("#{options[:bitlyuser]}", "#{options[:bitlykey]}")
-        #@api_available = true
-      #end
+  ISGD_ROOT_URL = "http://is.gd/forward.php?format=json&shorturl="
+  USER_AGENT = "is_gd ruby library http://is-gd.rubyforge.org"
+  BITLY_DOM_ARRAY = %w[bit.ly, j.mp, bitlypro.com, cs.pn, nyti.ms]
+  FAILING_API_DOMAINS = %w[xhref.com]
+  
+  #attr_accessor :short_url
+  #attr_reader :long_url, :error
+  
+    def initialize options = {}
+      Bitly.use_api_version_3
+      @bitly_instance = Bitly.new("#{options[:bitlyuser]}", "#{options[:bitlykey]}")
     end
 
     def identify_domain short_url
@@ -36,52 +33,50 @@ class Uncoil
     def expand url_arr
       #output a hash with short_url, long_url, error if present
       out_arr = Array(url_arr).flatten.map do |short_url|
-        
+        error     = nil
         short_url = clean_url(short_url)
-        domain = identify_domain(short_url)
+        domain    = identify_domain(short_url)
         
-        unless FAILING_API_DOMAINS.include? domain
-          if BITLY_DOM_ARRAY.include? domain
-            uncoil_bitly(short_url)
-          elsif check_bitly_pro(domain)
-            uncoil_bitly(short_url)
-          elsif domain == "is.gd"
-            uncoil_isgd(short_url)
+          unless FAILING_API_DOMAINS.include? domain
+            if BITLY_DOM_ARRAY.include? domain
+              long_url = uncoil_bitly(short_url)
+            elsif check_bitly_pro(domain)
+              long_url = uncoil_bitly(short_url)
+            elsif domain == "is.gd"
+              long_url = uncoil_isgd(short_url)
+            else
+              long_url = uncoil_other(short_url)
+            end
           else
-            uncoil_other(short_url)
+            error = "Unsupported domain"
+            #raise ArgumentError, "expansion for the #{domain} domain is not currently supported."
           end
-        #else #will add error script here when hash output is enabled
-        end
-        
+          
+          { :short_url => short_url , :long_url => long_url, :error => error }
+          
       end
-      
       out_arr.length == 1 ? out_arr[0] : out_arr
-      
     end
 
-    def check_bitly_pro url_domain#, api_key = BITLY_API_KEY
-        @bitly_instance.bitly_pro_domain(url_domain)
+    def check_bitly_pro url_domain
+      @bitly_instance.bitly_pro_domain(url_domain)
     end
 
-    def uncoil_bitly short_url#, api_key = BITLY_API_KEY
-        @bitly_instance.expand(short_url).long_url
+    def uncoil_bitly short_url
+      @bitly_instance.expand(short_url).long_url
     end
 
     def uncoil_isgd short_url
-      reply = open(ISGD_ROOT_URL + "#{short_url}") { |file| file.read }
-      JSON.parse(reply)["url"]
+      JSON.parse(open(ISGD_ROOT_URL + "#{short_url}") { |file| file.read })["url"]
     end
 
     def uncoil_other short_url, depth = 10
       url = URI.encode(short_url)
-
       response = Net::HTTP.get_response(URI.parse(url))
       
       case response
         when Net::HTTPSuccess     then url
         when Net::HTTPRedirection then uncoil_other(response['location'], depth - 1)
-        #when Net::HTTPClientError then raise ClientServError
-        #when Net::HTTPServerError then raise ClientServError
       end
     end
 end
