@@ -48,8 +48,8 @@ class Uncoil
               long_url = uncoil_other(short_url)
             end
           else
+            long_url = nil
             error = "Unsupported domain"
-            #raise ArgumentError, "expansion for the #{domain} domain is not currently supported."
           end
           
           { :short_url => short_url , :long_url => long_url, :error => error }

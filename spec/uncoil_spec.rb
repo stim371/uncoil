@@ -10,13 +10,9 @@ describe Uncoil do
   
   context "when expanding any link" do
     
-    it "should throw an error if any method can't resolve the address" do
-      fail
-    end
+    it "should throw an error if any method can't resolve the address"
     
-    it "should not allow access to the bitly-focused methods without an api key" do
-      fail
-    end
+    it "should not allow access to the bitly-focused methods without an api key"
     
   end
   
@@ -135,16 +131,21 @@ describe Uncoil do
     context "and entering input that will break the search" do
       
       it "should raise an error if no bitly auth criteria was put in at the beginning" do
-        lambda { Uncoil.new.expand("http://bit.ly/2EEjBl") }.should raise_error
+        lambda{ Uncoil.new.expand("http://bit.ly/2EEjBl") }.should raise_error
       end
+      
+      it "should warn that no auth criteria were given"
+      
+      it "should not allow access to the bitly methods if no criteria was given"
+      
+      it "should put a bitly specific error on given bitly links"
       
       it "should raise an error if the domain is in the not-supported array" do
-        lambda { subject.expand("http://xhref.com/110109") }.should raise_error
+        lambda { subject.expand("http://xhref.com/110109") }.should eq Hash[:long_url => "http://xhref.com/110109", :short_url => nil, :error => "Unsupported domain"]
+        #fileout.find_all{|h| h[:short_url] =~ /xhref/ }.each {|h| h[:error].should eq nil }
       end
       
-      it "should raise an error for non-urls" do
-        subject.expand("a").should eq ""
-      end
+      it "should raise an error for non-urls"
       
     end
     
