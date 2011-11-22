@@ -1,3 +1,5 @@
+require_relative '../lib/uncoil.rb'
+
 describe Uncoil do
   
   subject { Uncoil.new(:bitlyuser => "stim371", :bitlykey => "R_7a6f6d845668a8a7bb3e0c80ee3c28d6")}
@@ -135,11 +137,13 @@ describe Uncoil do
       it "should put a bitly specific error on given bitly links"
       
       it "should raise an error if the domain is in the not-supported array" do
-        lambda { subject.expand("http://xhref.com/110109") }.should eq Hash[:long_url => "http://xhref.com/110109", :short_url => nil, :error => "Unsupported domain"]
+        subject.expand("http://xhref.com/110109").should eq Hash[:long_url => nil, :short_url => "http://xhref.com/110109", :error => "Unsupported domain"]
         #fileout.find_all{|h| h[:short_url] =~ /xhref/ }.each {|h| h[:error].should eq nil }
       end
       
-      it "should raise an error for non-urls"
+      it "should raise an error for non-urls" do
+        subject.expand("a").should eq ""
+      end
       
     end
     
