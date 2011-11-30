@@ -4,14 +4,6 @@ describe Uncoil do
   
   subject { Uncoil.new(:bitlyuser => "stim371", :bitlykey => "R_7a6f6d845668a8a7bb3e0c80ee3c28d6")}
   
-  context "when expanding any link" do
-    
-    it "should throw an error if any method can't resolve the address"
-    
-    it "should not allow access to the bitly-focused methods without an api key"
-    
-  end
-  
   context "when cleaning up the url" do
     
     it "should add the prefix if none exists" do
@@ -46,11 +38,20 @@ describe Uncoil do
     it "should correctly extract the domain from a normal url" do
       subject.identify_domain("http://bit.ly/2EEjBl").should eq "bit.ly"
     end
-    
-    it "should throw an error if the url is too short" do
-      lambda{subject.identify_domain("bit.ly")}.should raise_error
-    end
   
+  end
+  
+  context "when validating the existence of an address" do
+    
+    it "should return true for valid urls" do
+      short_url = "http://www.cnn.com"
+      subject.valid_domain(short_url).should be_true
+    end
+    
+    it "should return false for invalid urls" do
+      subject.valid_domain("http://a").should be_false
+    end
+    
   end
   
   context "when checking a domain" do
@@ -72,7 +73,8 @@ describe Uncoil do
     context "when trying to undo a bit.ly link" do
     
       it "should bring back the correct long link" do
-        subject.uncoil_bitly("http://bit.ly/2EEjBl").should eq "http://www.cnn.com/"
+        expected_result = "http://www.cnn.com/"
+        subject.uncoil_bitly("http://bit.ly/2EEjBl").should eq expected_result
       end
     
     end
@@ -80,7 +82,8 @@ describe Uncoil do
     context "when trying to undo a bit.ly pro link" do
     
       it "should bring back the correct long link" do
-        subject.uncoil_bitly("http://cs.pn/vsZpra").should eq "http://www.c-spanvideo.org/program/CainNew"
+        expected_result = "http://www.c-spanvideo.org/program/CainNew"
+        subject.uncoil_bitly("http://cs.pn/vsZpra").should eq expected_result
       end
     
     end
@@ -105,7 +108,8 @@ describe Uncoil do
   context "when using the main expand method" do
     
     it "should expand bitly correctly" do
-      subject.expand("http://bit.ly/2EEjBl").should eq Hash[:long_url => "http://www.cnn.com/", :short_url => "http://bit.ly/2EEjBl", :error => nil]
+      expected_result = Hash[:long_url => "http://www.cnn.com/", :short_url => "http://bit.ly/2EEjBl", :error => nil]
+      subject.expand("http://bit.ly/2EEjBl").should eq expected_result
     end
     
     it "should expand bitlypro domains correctly" do
@@ -124,27 +128,22 @@ describe Uncoil do
       subject.expand(["http://bit.ly/2EEjBl","http://is.gd/gbKNRq","http://cs.pn/vsZpra"]).should eq [Hash[:long_url => "http://www.cnn.com/", :short_url => "http://bit.ly/2EEjBl", :error => nil], Hash[:long_url => "http://www.google.com", :short_url => "http://is.gd/gbKNRq", :error => nil],Hash[:long_url => "http://www.c-spanvideo.org/program/CainNew", :short_url => "http://cs.pn/vsZpra", :error => nil]]
     end
     
-    context "and entering input that will break the search" do
+    it "should throw an error if any method can't resolve the address"
+    
+    it "should warn that no auth criteria were given"
+    
+    it "should not allow access to the bitly-focused methods without an api key" do
+        Uncoil.new.expand("http://bit.ly/2EEjBl")[:error].should_not be_nil
+    end
       
-      it "should raise an error if no bitly auth criteria was put in at the beginning" do
-        lambda{ Uncoil.new.expand("http://bit.ly/2EEjBl") }.should raise_error
-      end
+    it "should not allow access to the bitly methods if no criteria was given"
       
-      it "should warn that no auth criteria were given"
-      
-      it "should not allow access to the bitly methods if no criteria was given"
-      
-      it "should put a bitly specific error on given bitly links"
-      
-      it "should raise an error if the domain is in the not-supported array" do
-        subject.expand("http://xhref.com/110109").should eq Hash[:long_url => nil, :short_url => "http://xhref.com/110109", :error => "Unsupported domain"]
-        #fileout.find_all{|h| h[:short_url] =~ /xhref/ }.each {|h| h[:error].should eq nil }
-      end
-      
-      it "should raise an error for non-urls" do
-        subject.expand("a").should eq ""
-      end
-      
+    it "should raise an error if the domain is in the not-supported array" do
+      subject.expand("http://xhref.com/110109").should eq Hash[:long_url => nil, :short_url => "http://xhref.com/110109", :error => "Unsupported domain"]
+    end
+    
+    it "should raise an error for non-urls" do
+      subject.expand("a")[:error].should_not be_nil
     end
     
   end

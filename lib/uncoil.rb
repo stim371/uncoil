@@ -11,17 +11,20 @@ class Uncoil
   BITLY_DOM_ARRAY = %w[bit.ly, j.mp, bitlypro.com, cs.pn, nyti.ms]
   FAILING_API_DOMAINS = %w[xhref.com]
   
-  #attr_accessor :short_url
-  #attr_reader :long_url, :error
-  
     def initialize options = {}
       Bitly.use_api_version_3
-      @bitly_instance = Bitly.new("#{options[:bitlyuser]}", "#{options[:bitlykey]}")
+      @bitly_access = false
+      
+      if options[:bitlyuser].nil? || options[:bitlykey].nil?
+        warn "WARNING: Invalid Bilty login criteria were given. You will not have access to the Bitly API on this object"
+      else
+        @bitly_instance = Bitly.new("#{options[:bitlyuser]}", "#{options[:bitlykey]}")
+        @bitly_access = true
+      end
     end
 
     def identify_domain short_url
-      split_array = short_url.split("/")
-      split_array.length > 2 ? split_array[2].to_s : raise(ArgumentError, "The url is too short!")
+      clean_url(short_url).split("/")[2].to_s
     end
 
     def clean_url short_url
@@ -30,32 +33,53 @@ class Uncoil
       short_url
     end
 
+    def valid_domain short_url
+      begin
+        Net::HTTP.get_response(URI.parse(URI.encode(short_url.to_s)))
+      rescue
+        return false
+      end
+      return true
+    end
+
     def expand url_arr
-      #output a hash with short_url, long_url, error if present
       out_arr = Array(url_arr).flatten.map do |short_url|
-        error     = nil
         short_url = clean_url(short_url)
         domain    = identify_domain(short_url)
         
-          unless FAILING_API_DOMAINS.include? domain
-            if BITLY_DOM_ARRAY.include? domain
-              long_url = uncoil_bitly(short_url)
-            elsif check_bitly_pro(domain)
-              long_url = uncoil_bitly(short_url)
-            elsif domain == "is.gd"
-              long_url = uncoil_isgd(short_url)
-            else
-              long_url = uncoil_other(short_url)
+        @bitly_access.nil? ? error = "Not logged in to Bitly API" : error = nil
+        
+        unless FAILING_API_DOMAINS.include? domain
+          if valid_domain(short_url)
+            begin
+              if BITLY_DOM_ARRAY.include?(domain) && @bitly_access
+                long_url = uncoil_bitly(short_url)
+              elsif check_bitly_pro(domain) && @bitly_access
+                long_url = uncoil_bitly(short_url)
+              elsif domain == "is.gd"
+                long_url = uncoil_isgd(short_url)
+              else
+                long_url = uncoil_other(short_url)
+              end
+            rescue => exception
+              long_url = nil
+              error = exception.message
             end
           else
             long_url = nil
-            error = "Unsupported domain"
+            error = ""
           end
-          
-          { :short_url => short_url , :long_url => long_url, :error => error }
+        else
+          long_url = nil
+          error = "Unsupported domain"
+        end
+        
+        { :short_url => short_url , :long_url => long_url, :error => error }
           
       end
+      
       out_arr.length == 1 ? out_arr[0] : out_arr
+
     end
 
     def check_bitly_pro url_domain
@@ -67,7 +91,7 @@ class Uncoil
     end
 
     def uncoil_isgd short_url
-      JSON.parse(open(ISGD_ROOT_URL + "#{short_url}") { |file| file.read })["url"]
+      JSON.parse(open(ISGD_ROOT_URL + "#{short_url}") { |file| file.read } )["url"]
     end
 
     def uncoil_other short_url, depth = 10
