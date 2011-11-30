@@ -33,15 +33,6 @@ class Uncoil
       short_url
     end
 
-    def valid_domain short_url
-      begin
-        Net::HTTP.get_response(URI.parse(URI.encode(short_url.to_s)))
-      rescue
-        return false
-      end
-      return true
-    end
-
     def expand url_arr
       out_arr = Array(url_arr).flatten.map do |short_url|
         short_url = clean_url(short_url)
@@ -50,24 +41,19 @@ class Uncoil
         @bitly_access.nil? ? error = "Not logged in to Bitly API" : error = nil
         
         unless FAILING_API_DOMAINS.include? domain
-          if valid_domain(short_url)
-            begin
-              if BITLY_DOM_ARRAY.include?(domain) && @bitly_access
-                long_url = uncoil_bitly(short_url)
-              elsif check_bitly_pro(domain) && @bitly_access
-                long_url = uncoil_bitly(short_url)
-              elsif domain == "is.gd"
-                long_url = uncoil_isgd(short_url)
-              else
-                long_url = uncoil_other(short_url)
-              end
-            rescue => exception
-              long_url = nil
-              error = exception.message
+          begin
+            if BITLY_DOM_ARRAY.include?(domain) && @bitly_access
+              long_url = uncoil_bitly(short_url)
+            elsif check_bitly_pro(domain) && @bitly_access
+              long_url = uncoil_bitly(short_url)
+            elsif domain == "is.gd"
+              long_url = uncoil_isgd(short_url)
+            else
+              long_url = uncoil_other(short_url)
             end
-          else
+          rescue => exception
             long_url = nil
-            error = ""
+            error = exception.message
           end
         else
           long_url = nil
