@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 require 'bitly'
 require 'open-uri'
 require 'net/http'
