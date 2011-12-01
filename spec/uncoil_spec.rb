@@ -41,19 +41,6 @@ describe Uncoil do
   
   end
   
-  context "when validating the existence of an address" do
-    
-    it "should return true for valid urls" do
-      short_url = "http://www.cnn.com"
-      subject.valid_domain(short_url).should be_true
-    end
-    
-    it "should return false for invalid urls" do
-      subject.valid_domain("http://a").should be_false
-    end
-    
-  end
-  
   context "when checking a domain" do
     
     it "should identify pro domains" do
@@ -133,16 +120,6 @@ describe Uncoil do
     
       subject.expand(arr_of_links).should eq results_array
     end
-    
-    it "should throw an error if any method can't resolve the address"
-    
-    it "should warn that no auth criteria were given"
-    
-    it "should not allow access to the bitly-focused methods without an api key" do
-        Uncoil.new.expand("http://bit.ly/2EEjBl")[:error].should_not be_nil
-    end
-      
-    it "should not allow access to the bitly methods if no criteria was given"
       
     it "should raise an error if the domain is in the not-supported array" do
       subject.expand("http://xhref.com/110109").should eq Hash[:long_url => nil, :short_url => "http://xhref.com/110109", :error => "Unsupported domain"]

@@ -7,7 +7,6 @@ require 'json'
 
 class Uncoil
   ISGD_ROOT_URL = "http://is.gd/forward.php?format=json&shorturl="
-  USER_AGENT = "is_gd ruby library http://is-gd.rubyforge.org"
   BITLY_DOM_ARRAY = %w[bit.ly, j.mp, bitlypro.com, cs.pn, nyti.ms]
   FAILING_API_DOMAINS = %w[xhref.com]
   
@@ -15,9 +14,7 @@ class Uncoil
       Bitly.use_api_version_3
       @bitly_access = false
       
-      if options[:bitlyuser].nil? || options[:bitlykey].nil?
-        warn "WARNING: Invalid Bilty login criteria were given. You will not have access to the Bitly API on this object"
-      else
+      if options.has_key?(:bitlyuser) && options.has_key?(:bitlykey)
         @bitly_instance = Bitly.new("#{options[:bitlyuser]}", "#{options[:bitlykey]}")
         @bitly_access = true
       end
@@ -42,9 +39,9 @@ class Uncoil
         
         unless FAILING_API_DOMAINS.include? domain
           begin
-            if BITLY_DOM_ARRAY.include?(domain) && @bitly_access
+            if @bitly_access && BITLY_DOM_ARRAY.include?(domain)
               long_url = uncoil_bitly(short_url)
-            elsif check_bitly_pro(domain) && @bitly_access
+            elsif @bitly_access && check_bitly_pro(domain)
               long_url = uncoil_bitly(short_url)
             elsif domain == "is.gd"
               long_url = uncoil_isgd(short_url)
