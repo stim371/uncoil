@@ -120,10 +120,6 @@ describe Uncoil do
     
       subject.expand(arr_of_links).should eq results_array
     end
-      
-    it "should raise an error if the domain is in the not-supported array" do
-      subject.expand("http://xhref.com/110109").should eq Hash[:long_url => nil, :short_url => "http://xhref.com/110109", :error => "Unsupported domain"]
-    end
     
     it "should raise an error for non-urls" do
       subject.expand("a")[:error].should_not be_nil

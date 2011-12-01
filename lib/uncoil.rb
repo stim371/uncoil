@@ -8,7 +8,6 @@ require 'json'
 class Uncoil
   ISGD_ROOT_URL = "http://is.gd/forward.php?format=json&shorturl="
   BITLY_DOM_ARRAY = %w[bit.ly, j.mp, bitlypro.com, cs.pn, nyti.ms]
-  FAILING_API_DOMAINS = %w[xhref.com]
   
     def initialize options = {}
       Bitly.use_api_version_3
@@ -37,24 +36,19 @@ class Uncoil
         
         @bitly_access.nil? ? error = "Not logged in to Bitly API" : error = nil
         
-        unless FAILING_API_DOMAINS.include? domain
-          begin
-            if @bitly_access && BITLY_DOM_ARRAY.include?(domain)
-              long_url = uncoil_bitly(short_url)
-            elsif @bitly_access && check_bitly_pro(domain)
-              long_url = uncoil_bitly(short_url)
-            elsif domain == "is.gd"
-              long_url = uncoil_isgd(short_url)
-            else
-              long_url = uncoil_other(short_url)
-            end
-          rescue => exception
-            long_url = nil
-            error = exception.message
+        begin
+          if @bitly_access && BITLY_DOM_ARRAY.include?(domain)
+            long_url = uncoil_bitly(short_url)
+          elsif @bitly_access && check_bitly_pro(domain)
+            long_url = uncoil_bitly(short_url)
+          elsif domain == "is.gd"
+            long_url = uncoil_isgd(short_url)
+          else
+            long_url = uncoil_other(short_url)
           end
-        else
+        rescue => exception
           long_url = nil
-          error = "Unsupported domain"
+          error = exception.message
         end
         
         { :short_url => short_url , :long_url => long_url, :error => error }
