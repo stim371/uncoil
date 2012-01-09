@@ -6,8 +6,8 @@ Gem::Specification.new do |s|
   s.name        = "uncoil"
   s.version     = Uncoil::VERSION
   s.authors     = ["Joel Stimson"]
-  s.email       = ["stimsojr@gmail.com"]
-  s.homepage    = ""
+  s.email       = ["contact@cleanroomstudios.com"]
+  s.homepage    = "http://uncoil.me"
   s.summary     = %q{TODO: Write a gem summary}
   s.description = %q{TODO: Write a gem description}
 
@@ -19,6 +19,8 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
+  s.add_development_dependency "rspec"
+  s.add_development_dependency "guard-rspec"
+  
+  s.add_runtime_dependency "bitly"
 end

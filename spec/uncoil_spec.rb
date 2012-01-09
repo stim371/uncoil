@@ -1,4 +1,4 @@
-require_relative '../lib/uncoil.rb'
+require 'uncoil'
 
 describe Uncoil do
   
