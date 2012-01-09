@@ -1,3 +1,3 @@
-module Uncoil
+class Uncoil
   VERSION = "0.0.1"
 end
