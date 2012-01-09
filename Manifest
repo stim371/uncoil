@@ -1,0 +1,9 @@
+Gemfile
+Gemfile.lock
+Guardfile
+README.md
+Rakefile
+lib/uncoil.rb
+spec/spec_helper.rb
+spec/uncoil_spec.rb
+Manifest

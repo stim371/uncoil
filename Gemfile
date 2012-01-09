@@ -1,11 +1,4 @@
-source :rubygems
+source "http://rubygems.org"
 
-gem 'rake'
-gem 'bitly'
-gem 'json'
-
-group :test do
-  gem 'rspec'
-  gem 'guard'
-  gem 'guard-rspec'
-end
+# Specify your gem's dependencies in uncoil.gemspec
+gemspec
