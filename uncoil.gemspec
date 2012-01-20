@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Uncoil::VERSION
   s.authors     = ["Joel Stimson"]
   s.email       = ["contact@cleanroomstudios.com"]
-  s.homepage    = "http://uncoil.me"
+  s.homepage    = "https://github.com/stim371/uncoil"
   s.summary     = %q{TODO: Write a gem summary}
   s.description = %q{TODO: Write a gem description}
 
