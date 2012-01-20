@@ -36,4 +36,3 @@ Here are a few ideas I have for the future:
 * Dynamic method assignment based on domain.  
   * This goes with the modularized structure above, because it allows you to just drop more API files into the folder and not have to modify the main method
 * Better error handling (I'd appreciate any comments on what to catch and what to leave)
-* Offer the code as a gem
