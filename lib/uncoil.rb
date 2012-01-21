@@ -32,6 +32,7 @@ class Uncoil
         short_url = clean_url(short_url)
         domain    = identify_domain(short_url)
         
+        # do i really need this? i dont think it gets hit correctly
         @bitly_access.nil? ? error = "Not logged in to Bitly API" : error = nil
         
         begin
@@ -49,8 +50,8 @@ class Uncoil
           error = exception.message
         end
         
-        { :short_url => short_url , :long_url => long_url, :error => error }
-          
+        # { :short_url => short_url , :long_url => long_url, :error => error }
+        Response.new(long_url, short_url, error)
       end
       
       out_arr.length == 1 ? out_arr[0] : out_arr
@@ -78,4 +79,14 @@ class Uncoil
         when Net::HTTPRedirection then uncoil_other(response['location'], depth - 1)
       end
     end
+end
+
+class Uncoil::Response
+  attr_reader :long_url, :short_url, :error
+  
+  def initialize(long_url, short_url, error)
+    @long_url = long_url
+    @short_url = short_url
+    @error = error
+  end
 end
