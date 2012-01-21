@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   # specify any dependencies here; for example:
   s.add_development_dependency "rspec"
   s.add_development_dependency "guard-rspec"
+  s.add_development_dependency "simplecov"
   
   s.add_runtime_dependency "bitly"
 end

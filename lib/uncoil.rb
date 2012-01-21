@@ -36,9 +36,7 @@ class Uncoil
         @bitly_access.nil? ? error = "Not logged in to Bitly API" : error = nil
         
         begin
-          if @bitly_access && BITLY_DOM_ARRAY.include?(domain)
-            long_url = uncoil_bitly(short_url)
-          elsif @bitly_access && check_bitly_pro(domain)
+          if @bitly_access && ( BITLY_DOM_ARRAY.include?(domain) || check_bitly_pro(domain) )
             long_url = uncoil_bitly(short_url)
           elsif domain == "is.gd"
             long_url = uncoil_isgd(short_url)
