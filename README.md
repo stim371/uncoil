@@ -63,7 +63,7 @@ A full usage cycle may look like this:
 2. See if it matches with any of the supported APIs
   * If so, it calls the correct API method
   * If no matching method is found, it runs through an HTTP loop until it receives a 200 response
-3. It then returns a hash containing, among other items, the full url
+3. It then returns a Response object containing, among other items, the full url
 
 ## Future Enhancements
 Here are a few ideas I have for the future:
