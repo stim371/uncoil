@@ -1,5 +1,7 @@
 # uncoil - the link unshortening gem
 
+[![Build Status](https://secure.travis-ci.org/stim371/uncoil.png)](http://travis-ci.org/stim371/uncoil)
+
 The uncoil gem is a one stop shop for un-shortening urls.
 
 The idea is based off of my site http://uncoil.me and I built this as part of my UWE-Ruby fall project.
