@@ -7,17 +7,11 @@ describe Uncoil do
   
   describe "when using the submethods" do
     
-    context "when trying to undo a bit.ly link" do
+    context "when trying to undo a bit.ly and bit.ly pro link" do
       it "should bring back the correct long link" do
-        expected_result = "http://www.cnn.com/"
-        subject.uncoil_bitly("http://bit.ly/2EEjBl").should eq expected_result
-      end
-    end
-  
-    context "when trying to undo a bit.ly pro link" do
-      it "should bring back the correct long link" do
-        expected_result = "http://www.c-spanvideo.org/program/CainNew"
-        subject.uncoil_bitly("http://cs.pn/vsZpra").should eq expected_result
+        {"http://bit.ly/2EEjBl" => "http://www.cnn.com/", "http://cs.pn/vsZpra" => "http://www.c-spanvideo.org/program/CainNew" }.each { |short_url, long_url| 
+        subject.uncoil_bitly(short_url).should eq long_url
+        }
       end
     end
   

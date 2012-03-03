@@ -94,7 +94,7 @@ end
 class Uncoil::Response
   attr_reader :long_url, :short_url, :error
   
-  # Creates a new Response object with attributes for the original and short url, as well as any errors that occured
+  # Creates a new Response object with attributes for the original and short url, as well as any errors that occured. It is called at the end of 'expand' method.
   #
   # @param [String] long_url The expanded url that we were looking for.
   # @param [String] short_url The original, short url that we used to look up the long url.
