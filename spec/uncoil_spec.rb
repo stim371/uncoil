@@ -3,7 +3,7 @@ require 'uncoil'
 
 describe Uncoil do
   
-  subject { Uncoil.new(:bitlyuser => "stim371", :bitlykey => "R_7a6f6d845668a8a7bb3e0c80ee3c28d6")}
+  subject { Uncoil.new(:bitlyuser => CREDENTIALS['user'], :bitlykey => CREDENTIALS['bitlykey'])}
   
   describe "when using the submethods" do
     
@@ -36,15 +36,11 @@ describe Uncoil do
   
   describe "the main expand method" do
     
-    it "should return a response object" do
-      subject.expand("http://is.gd/gbKNRq").class.should eq Uncoil::Response
-    end
-    
     it "should raise an error for non-urls" do
       subject.expand("a").error.should_not be_nil
     end
     
-    context "and when expanding a link" do
+    context "when expanding a link" do
       
       def check_response response, expected_result
         response.long_url.should eq expected_result[:long_url]
