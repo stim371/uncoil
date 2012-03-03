@@ -1,10 +1,21 @@
 require 'bitly'
 require_relative 'uncoil_submethods'
 
+# @author Joel Stimson
 class Uncoil
   ISGD_ROOT_URL = "http://is.gd/forward.php?format=json&shorturl="
   BITLY_DOM_ARRAY = %w[bit.ly, j.mp, bitlypro.com, cs.pn, nyti.ms]
   
+  # Creates a new Uncoil object and will log into Bit.ly if you provide credentials
+  #
+  # @option options [String] :bitlyuser A key for your Bit.ly API username
+  # @option options [String] :bitlykey A key for your Bit.ly API key
+  # 
+  # @return [Class] the new instance of the Uncoil class
+  # 
+  # @example Set up a new instance
+  #  Uncoil.new(:bitlyuser => CREDENTIALS['bitlyuser'], :bitlykey => CREDENTIALS['bitlykey']) => "#<Uncoil:0x00000102560d30 @bitly_access=true>"
+  #
   def initialize options = {}
     Bitly.use_api_version_3
     @bitly_access = false
@@ -16,10 +27,17 @@ class Uncoil
     end
   end
 
+
+  # The main method used for all requests. This method will delegate to submethods based on the domain of the link given.
+  #
+  # @param [String, Array] url_arr This can be a single url as a String or an array of Strings that the method will expand in order
+  #
+  # @return [Uncoil::Response] Returns a response object with getters for the long and short url
+  # 
   def expand url_arr
     output_array = Array(url_arr).flatten.map do |short_url|
-      short_url = clean_url(short_url)
-      domain    = identify_domain(short_url)
+      short_url  = clean_url(short_url)
+      domain     = identify_domain(short_url)
       
       begin
         long_url = 
@@ -41,16 +59,29 @@ class Uncoil
     output_array.length == 1 ? output_array[0] : output_array
   end
 
+
+  # Contacts the bit.ly API to see if the domain is a bitlypro domain, which are custom domains purchased by 3rd parties but managed by bit.ly
+  #
+  # @param [String] url_domain The domain to check against the bit.ly API.
+  #
   def check_bitly_pro url_domain
     @bitly_instance.bitly_pro_domain(url_domain)
   end
   
-  # helper methods to clean up the code above
   
+  # Extracts the domain from the link to help match it with the right sub-method to expand the url
+  #
+  # @param [String] short_url A single url to extract a domain from.
+  #
   def identify_domain short_url
     clean_url(short_url).split("/")[2].to_s
   end
+  
 
+  # Standardizes the url by adding a protocol if there isn't one and removing trailing slashes
+  #
+  # @param [String] short_url A single url to be cleaned up.
+  #
   def clean_url short_url
     short_url = "http://" << short_url unless short_url =~ /^https?:\/\//
     short_url.chop! if short_url[-1] == "/"
@@ -59,9 +90,16 @@ class Uncoil
   
 end
 
+
 class Uncoil::Response
   attr_reader :long_url, :short_url, :error
   
+  # Creates a new Response object with attributes for the original and short url, as well as any errors that occured
+  #
+  # @param [String] long_url The expanded url that we were looking for.
+  # @param [String] short_url The original, short url that we used to look up the long url.
+  # @param [String] error The error output if anything went wrong during the request. And I mean ANYTHING from a code error to an HTTP issue. It catches it all.
+  #
   def initialize(long_url, short_url, error)
     @long_url = long_url
     @short_url = short_url

@@ -3,7 +3,7 @@ require 'uncoil'
 
 describe Uncoil do
   
-  subject { Uncoil.new(:bitlyuser => CREDENTIALS['user'], :bitlykey => CREDENTIALS['bitlykey'])}
+  subject { Uncoil.new(:bitlyuser => CREDENTIALS['bitlyuser'], :bitlykey => CREDENTIALS['bitlykey'])}
   
   describe "when using the submethods" do
     

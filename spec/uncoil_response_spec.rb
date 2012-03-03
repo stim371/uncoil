@@ -3,7 +3,7 @@ require 'uncoil'
 
 describe "the response object" do
   
-  subject { Uncoil.new(:bitlyuser => "stim371", :bitlykey => "R_7a6f6d845668a8a7bb3e0c80ee3c28d6")}
+  subject { Uncoil.new(:bitlyuser => CREDENTIALS['bitlyuser'], :bitlykey => CREDENTIALS['bitlykey'])}
   
   before(:all) {
     @subject = subject.expand("http://is.gd/gbKNRq")
