@@ -27,12 +27,16 @@ class Uncoil
     end
   end
   
+  # A class method version of the main expand method. This will not have access to the bit.ly API, but it's faster than having to create an instance and then use it for a one-off request.
+  #
+  # @param [String, Array] short_url The single url or array of urls you would like to expand
+  #
+  # @example Use the class method for a one-off request
+  #  Uncoil.expand("http://tinyurl.com/736swvl") # => #<Uncoil::Response:0x00000101ed9250 @long_url="http://www.chinadaily.com.cn/usa/business/2011-11/08/content_14057648.htm", @short_url="http://tinyurl.com/736swvl", @error=nil> 
+  #
   def self.expand short_url
-    @newinstance = Uncoil.new
-    @outputobject = @newinstance.expand(short_url)
-    return @outputobject
+    Uncoil.new.expand(short_url)
   end
-
 
   # The main method used for all requests. This method will delegate to submethods based on the domain of the link given.
   #
