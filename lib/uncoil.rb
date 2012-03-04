@@ -26,6 +26,12 @@ class Uncoil
       @bitly_access = true
     end
   end
+  
+  def self.expand short_url
+    @newinstance = Uncoil.new
+    @outputobject = @newinstance.expand(short_url)
+    return @outputobject
+  end
 
 
   # The main method used for all requests. This method will delegate to submethods based on the domain of the link given.

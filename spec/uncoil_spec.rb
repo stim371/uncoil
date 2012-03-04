@@ -5,6 +5,17 @@ describe Uncoil do
   
   subject { Uncoil.new(:bitlyuser => CREDENTIALS['bitlyuser'], :bitlykey => CREDENTIALS['bitlykey'])}
   
+  describe "#expand class method" do
+    it "should successfully return a response object" do
+      Uncoil.expand("http://tinyurl.com/736swvl").class.should eq Uncoil::Response
+    end
+    
+    it "should bring back the correct link" do
+      response = Uncoil.expand("http://tinyurl.com/736swvl")
+      response.long_url.should eq "http://www.chinadaily.com.cn/usa/business/2011-11/08/content_14057648.htm"
+    end
+  end
+  
   describe "when using the submethods" do
     
     context "when trying to undo a bit.ly and bit.ly pro link" do
