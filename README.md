@@ -29,6 +29,17 @@ require 'uncoil'
 ```
 
 ## Usage
+
+### One-off Calls
+If you want to just make a single call, give this a try:
+
+```ruby
+Uncoil.expand('http://bit.ly/2EEjBl') # => <Uncoil::Response:0x00000100a0d948 @long_url="http://www.cnn.com/" @short_url="http://bit.ly/2EEjBl" @error=nil>
+```
+
+### Creating an Instance
+If you need to make repeated calls or would like to access the bitly api, you need to create an instance.
+
 * If you have Bitly login credentials, use them to create a new instance:
 
 ```ruby
