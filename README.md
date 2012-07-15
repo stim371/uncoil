@@ -6,7 +6,7 @@ The uncoil gem is a one stop shop for un-shortening urls.
 
 The idea is based off of my site http://uncoil.me and I built this as part of my UWE-Ruby fall project.
 
-## Why the heck does this exist?
+### Why the heck does this exist?
 This gem is all about transparency, safety and knowing where you are going on the internet.
 
 The last straw was seeing TechCrunch articles with titles like "Don't click on this one specific goo.gl link! It's a virus!" (like [this](http://techcrunch.com/2010/12/07/twitter-virus/) one), which was flabbergasting. How is it that a tech blog and community's only response to these kind of threats is so reactionary and linear? **We can do better than that.**
@@ -87,3 +87,14 @@ Here are a few ideas I have for the future:
 * Dynamic method assignment based on domain.  
   * This goes with the modularized structure above, because it allows you to just drop more API files into the folder and not have to modify the main method
 * Better error handling (I'd appreciate any comments on what to catch and what to leave)
+
+## License
+
+The MIT License (MIT)
+Copyright (c) 2012 Joel Stimson
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
