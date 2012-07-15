@@ -40,7 +40,7 @@ describe Uncoil do
     end
   end
   
-  context "when checking a domain" do
+  context "when checking a domain", :vcr => { :cassette_name => "domain_checking" } do
     
     it "should identify pro domains" do
       subject.check_bitly_pro("cs.pn").should be_true

@@ -1,0 +1,123 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.bit.ly/v3/bitly_pro_domain?apiKey=R_7a6f6d845668a8a7bb3e0c80ee3c28d6&domain=cs.pn&login=stim371
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 15 Jul 2012 10:29:50 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '95'
+      Etag:
+      - ! '"dfa798beabc7b464960d35bc73b45490e538569e"'
+    body:
+      encoding: US-ASCII
+      string: ! '{"status_code": 200, "data": {"domain": "cs.pn", "bitly_pro_domain":
+        true}, "status_txt": "OK"}'
+    http_version: !!null 
+  recorded_at: Sun, 15 Jul 2012 10:32:36 GMT
+- request:
+    method: get
+    uri: http://api.bit.ly/v3/bitly_pro_domain?apiKey=R_7a6f6d845668a8a7bb3e0c80ee3c28d6&domain=nyti.ms&login=stim371
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 15 Jul 2012 10:29:50 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '97'
+      Etag:
+      - ! '"bb9e548cca26dd7b88413f77fd2d428a8027e3d4"'
+    body:
+      encoding: US-ASCII
+      string: ! '{"status_code": 200, "data": {"domain": "nyti.ms", "bitly_pro_domain":
+        true}, "status_txt": "OK"}'
+    http_version: !!null 
+  recorded_at: Sun, 15 Jul 2012 10:32:37 GMT
+- request:
+    method: get
+    uri: http://api.bit.ly/v3/bitly_pro_domain?apiKey=R_7a6f6d845668a8a7bb3e0c80ee3c28d6&domain=bit.ly&login=stim371
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 15 Jul 2012 10:29:50 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '97'
+      Etag:
+      - ! '"267b83fc6e6df6cfca9d1d225d9c49370fd95a2b"'
+    body:
+      encoding: US-ASCII
+      string: ! '{"status_code": 200, "data": {"domain": "bit.ly", "bitly_pro_domain":
+        false}, "status_txt": "OK"}'
+    http_version: !!null 
+  recorded_at: Sun, 15 Jul 2012 10:32:37 GMT
+- request:
+    method: get
+    uri: http://api.bit.ly/v3/bitly_pro_domain?apiKey=R_7a6f6d845668a8a7bb3e0c80ee3c28d6&domain=tinyurl.com&login=stim371
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 15 Jul 2012 10:29:50 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '102'
+      Etag:
+      - ! '"6c9ffcc6cedebcfcf385b08ea8c1a4bd87654b91"'
+    body:
+      encoding: US-ASCII
+      string: ! '{"status_code": 200, "data": {"domain": "tinyurl.com", "bitly_pro_domain":
+        false}, "status_txt": "OK"}'
+    http_version: !!null 
+  recorded_at: Sun, 15 Jul 2012 10:32:37 GMT
+recorded_with: VCR 2.2.3

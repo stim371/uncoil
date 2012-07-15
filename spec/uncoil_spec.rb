@@ -5,7 +5,7 @@ describe Uncoil do
   
   subject { Uncoil.new(:bitlyuser => CREDENTIALS['bitlyuser'], :bitlykey => CREDENTIALS['bitlykey'])}
   
-  describe "#expand class method" do
+  describe "#expand class method", :vcr => { :cassette_name => "class_method" } do
     it "should successfully return a response object" do
       Uncoil.expand("http://tinyurl.com/736swvl").class.should eq Uncoil::Response
     end
@@ -16,9 +16,9 @@ describe Uncoil do
     end
   end
   
-  describe "when using the submethods" do
+  describe "when using the submethods", :vcr => { :cassette_name => "submethod_requests" } do
     
-    context "when trying to undo a bit.ly and bit.ly pro link" do
+    context "when trying to undo a bit.ly and bit.ly pro link", :vcr => { :cassette_name => "bitly_and_pro_links" } do
       it "should bring back the correct long link" do
         {"http://bit.ly/2EEjBl" => "http://www.cnn.com/", "http://cs.pn/vsZpra" => "http://www.c-spanvideo.org/program/CainNew" }.each { |short_url, long_url| 
         subject.uncoil_bitly(short_url).should eq long_url
@@ -45,13 +45,13 @@ describe Uncoil do
       subject.expand("a").error.should_not be_nil
     end
     
-    context "when expanding a link" do
-      
-      def check_response response, expected_result
-        response.long_url.should eq expected_result[:long_url]
-        response.short_url.should eq expected_result[:short_url]
-        response.error.should eq expected_result[:error]
-      end
+    def check_response(response, expected_result)
+      response.long_url.should eq expected_result[:long_url]
+      response.short_url.should eq expected_result[:short_url]
+      response.error.should eq expected_result[:error]
+    end
+    
+    context "when expanding a single link", :vcr => { :cassette_name => "main_instance_method" } do
       
       it "should expand bitly correctly" do
         expected_result = Hash[:long_url => "http://www.cnn.com/", :short_url => "http://bit.ly/2EEjBl", :error => nil]
@@ -76,26 +76,27 @@ describe Uncoil do
         response = subject.expand("http://tinyurl.com/736swvl")
         check_response response, expected_result
       end
+    end
     
-      context "with an array input" do
+    describe "with an array input", :vcr => { :cassette_name => "array_of_links" } do
         
-        before(:all) {
-          arr_of_links = ["http://bit.ly/2EEjBl","http://is.gd/gbKNRq","http://cs.pn/vsZpra"]
-          @response = subject.expand(arr_of_links)
-          }
+        arr_of_links = ["http://bit.ly/2EEjBl","http://is.gd/gbKNRq","http://cs.pn/vsZpra"]
+        
+        subject { Uncoil.expand(arr_of_links) }
         
         it "should return an array" do
-          @response.class.should eq Array
+          subject.class.should eq Array
         end
         
         it "should return an array of response objects" do
-          @response.each { |r| r.class.should eq Uncoil::Response }
+          subject.each { |r| r.class.should eq Uncoil::Response }
         end
         
         it "should successfully expand all links" do
           @expected_result = [Hash[:long_url => "http://www.cnn.com/", :short_url => "http://bit.ly/2EEjBl", :error => nil], Hash[:long_url => "http://www.google.com", :short_url => "http://is.gd/gbKNRq", :error => nil],Hash[:long_url => "http://www.c-spanvideo.org/program/CainNew", :short_url => "http://cs.pn/vsZpra", :error => nil]]
-          @response.each_with_index { |response_array, index| check_response response_array, @expected_result[index] }
-        end
+          subject.each_with_index { |response, index|
+            check_response(response, @expected_result[index])
+            }
       end
     end
   end

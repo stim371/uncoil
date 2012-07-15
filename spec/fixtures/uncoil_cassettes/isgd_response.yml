@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://is.gd/forward.php?format=json&shorturl=http://is.gd/gbKNRq
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 15 Jul 2012 10:29:51 GMT
+      Content-Type:
+      - text/javascript; charset=utf8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - PHP/5.2.17
+      Access-Control-Allow-Origin:
+      - ! '*'
+    body:
+      encoding: US-ASCII
+      string: ! '{ "url": "http://www.google.com" }'
+    http_version: !!null 
+  recorded_at: Sun, 15 Jul 2012 10:32:38 GMT
+recorded_with: VCR 2.2.3

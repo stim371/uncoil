@@ -1,0 +1,69 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.bit.ly/v3/expand?apiKey=R_7a6f6d845668a8a7bb3e0c80ee3c28d6&login=stim371&shortUrl=http://bit.ly/2EEjBl
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 15 Jul 2012 10:29:53 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Mime-Version:
+      - '1.0'
+      Content-Length:
+      - '199'
+    body:
+      encoding: US-ASCII
+      string: ! '{ "status_code": 200, "status_txt": "OK", "data": { "expand": [ {
+        "short_url": "http:\/\/bit.ly\/2EEjBl", "long_url": "http:\/\/www.cnn.com\/",
+        "user_hash": "2EEjBl", "global_hash": "2EEjBl" } ] } }
+
+'
+    http_version: !!null 
+  recorded_at: Sun, 15 Jul 2012 10:32:39 GMT
+- request:
+    method: get
+    uri: http://api.bit.ly/v3/expand?apiKey=R_7a6f6d845668a8a7bb3e0c80ee3c28d6&login=stim371&shortUrl=http://cs.pn/vsZpra
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 15 Jul 2012 10:29:53 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Mime-Version:
+      - '1.0'
+      Content-Length:
+      - '222'
+    body:
+      encoding: US-ASCII
+      string: ! '{ "status_code": 200, "status_txt": "OK", "data": { "expand": [ {
+        "short_url": "http:\/\/cs.pn\/vsZpra", "long_url": "http:\/\/www.c-spanvideo.org\/program\/CainNew",
+        "user_hash": "vsZpra", "global_hash": "vPQYzq" } ] } }
+
+'
+    http_version: !!null 
+  recorded_at: Sun, 15 Jul 2012 10:32:39 GMT
+recorded_with: VCR 2.2.3
