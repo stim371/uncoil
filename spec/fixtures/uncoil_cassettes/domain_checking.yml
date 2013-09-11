@@ -15,7 +15,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 15 Jul 2012 10:29:50 GMT
+      - Fri, 06 Sep 2013 20:49:20 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -28,8 +28,8 @@ http_interactions:
       encoding: US-ASCII
       string: ! '{"status_code": 200, "data": {"domain": "cs.pn", "bitly_pro_domain":
         true}, "status_txt": "OK"}'
-    http_version: !!null 
-  recorded_at: Sun, 15 Jul 2012 10:32:36 GMT
+    http_version: 
+  recorded_at: Fri, 06 Sep 2013 20:49:22 GMT
 - request:
     method: get
     uri: http://api.bit.ly/v3/bitly_pro_domain?apiKey=R_7a6f6d845668a8a7bb3e0c80ee3c28d6&domain=nyti.ms&login=stim371
@@ -45,7 +45,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 15 Jul 2012 10:29:50 GMT
+      - Fri, 06 Sep 2013 20:49:21 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -58,8 +58,8 @@ http_interactions:
       encoding: US-ASCII
       string: ! '{"status_code": 200, "data": {"domain": "nyti.ms", "bitly_pro_domain":
         true}, "status_txt": "OK"}'
-    http_version: !!null 
-  recorded_at: Sun, 15 Jul 2012 10:32:37 GMT
+    http_version: 
+  recorded_at: Fri, 06 Sep 2013 20:49:22 GMT
 - request:
     method: get
     uri: http://api.bit.ly/v3/bitly_pro_domain?apiKey=R_7a6f6d845668a8a7bb3e0c80ee3c28d6&domain=bit.ly&login=stim371
@@ -75,7 +75,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 15 Jul 2012 10:29:50 GMT
+      - Fri, 06 Sep 2013 20:49:21 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -88,8 +88,8 @@ http_interactions:
       encoding: US-ASCII
       string: ! '{"status_code": 200, "data": {"domain": "bit.ly", "bitly_pro_domain":
         false}, "status_txt": "OK"}'
-    http_version: !!null 
-  recorded_at: Sun, 15 Jul 2012 10:32:37 GMT
+    http_version: 
+  recorded_at: Fri, 06 Sep 2013 20:49:23 GMT
 - request:
     method: get
     uri: http://api.bit.ly/v3/bitly_pro_domain?apiKey=R_7a6f6d845668a8a7bb3e0c80ee3c28d6&domain=tinyurl.com&login=stim371
@@ -105,7 +105,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 15 Jul 2012 10:29:50 GMT
+      - Fri, 06 Sep 2013 20:49:21 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -118,6 +118,6 @@ http_interactions:
       encoding: US-ASCII
       string: ! '{"status_code": 200, "data": {"domain": "tinyurl.com", "bitly_pro_domain":
         false}, "status_txt": "OK"}'
-    http_version: !!null 
-  recorded_at: Sun, 15 Jul 2012 10:32:37 GMT
-recorded_with: VCR 2.2.3
+    http_version: 
+  recorded_at: Fri, 06 Sep 2013 20:49:23 GMT
+recorded_with: VCR 2.5.0

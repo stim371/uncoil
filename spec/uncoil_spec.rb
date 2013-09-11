@@ -7,12 +7,13 @@ describe Uncoil do
   
   describe "#expand class method", :vcr => { :cassette_name => "class_method" } do
     it "should successfully return a response object" do
-      Uncoil.expand("http://tinyurl.com/736swvl").class.should eq Uncoil::Response
+      Uncoil.expand("http://tinyurl.com/cxt5kjr").class.should eq Uncoil::Response
     end
     
     it "should bring back the correct link" do
-      response = Uncoil.expand("http://tinyurl.com/736swvl")
-      response.long_url.should eq "http://www.chinadaily.com.cn/usa/business/2011-11/08/content_14057648.htm"
+      response = Uncoil.expand("http://tinyurl.com/cxt5kjr")
+      # p response
+      response.long_url.should eq "http://www.duolingo.com/"
     end
   end
   
@@ -34,7 +35,7 @@ describe Uncoil do
   
     context "when trying to undo from other services" do
       it "should bring back the correct long link" do
-         subject.uncoil_other("http://tinyurl.com/736swvl").should eq "http://www.chinadaily.com.cn/usa/business/2011-11/08/content_14057648.htm"
+         subject.uncoil_other("http://tinyurl.com/cxt5kjr").should eq "http://www.duolingo.com/"
       end
     end
   end
@@ -72,8 +73,8 @@ describe Uncoil do
       end
     
       it "should expand other shortened urls correctly" do
-        expected_result = Hash[:long_url => "http://www.chinadaily.com.cn/usa/business/2011-11/08/content_14057648.htm", :short_url => "http://tinyurl.com/736swvl", :error => nil]
-        response = subject.expand("http://tinyurl.com/736swvl")
+        expected_result = Hash[:long_url => "http://www.duolingo.com/", :short_url => "http://tinyurl.com/cxt5kjr", :error => nil]
+        response = subject.expand("http://tinyurl.com/cxt5kjr")
         check_response response, expected_result
       end
     end

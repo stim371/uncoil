@@ -2,326 +2,317 @@
 http_interactions:
 - request:
     method: get
-    uri: http://tinyurl.com/736swvl
+    uri: http://tinyurl.com/cxt5kjr
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      Accept:
-      - ! '*/*'
       User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 301
-      message: Moved Permanently
-    headers:
-      X-Powered-By:
-      - PHP/5.4.3
-      Set-Cookie:
-      - tinyUUID=0029ba56212043a8a1efc882; expires=Mon, 15-Jul-2013 10:29:52 GMT;
-        path=/; domain=.tinyurl.com
-      Location:
-      - http://news.google.com/news/url?sa=t&fd=R&usg=AFQjCNGAT8GOte4VthVYq00L4lSCa7omBA&url=http://www.chinadaily.com.cn/usa/business/2011-11/08/content_14057648.htm
-      X-Tiny:
-      - cache 0.0012021064758301
-      Content-Type:
-      - text/html
-      Content-Length:
-      - '0'
-      Connection:
-      - close
-      Date:
-      - Sun, 15 Jul 2012 10:29:52 GMT
-      Server:
-      - TinyURL/1.6
-    body:
-      encoding: US-ASCII
-      string: ''
-    http_version: !!null 
-  recorded_at: Sun, 15 Jul 2012 10:32:38 GMT
-- request:
-    method: get
-    uri: http://news.google.com/news/url?fd=R&sa=t&url=http://www.chinadaily.com.cn/usa/business/2011-11/08/content_14057648.htm&usg=AFQjCNGAT8GOte4VthVYq00L4lSCa7omBA
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - ! '*/*'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 302
-      message: Moved Temporarily
-    headers:
-      Content-Type:
-      - text/html; charset=UTF-8
-      Set-Cookie:
-      - NID=61=R5Ovi-t3cBmReh2OvD05trxqRlBDrtIxmElmkMPHCDd9e_-Dx4PSOSd6TH9cc4ZwlSmIwNnXuh2qKxRWaMf58JVELI9omwSo6WK9djlWl2UHxLr7i6rmvZMR9hifH-rO;Domain=.google.com;Path=/;Expires=Mon,
-        14-Jan-2013 10:29:51 GMT;HttpOnly
-      P3p:
-      - CP="This is not a P3P policy! See http://www.google.com/support/accounts/bin/answer.py?hl=en&answer=151657
-        for more info."
-      Location:
-      - http://www.chinadaily.com.cn/usa/business/2011-11/08/content_14057648.htm
-      Date:
-      - Sun, 15 Jul 2012 10:29:51 GMT
-      Expires:
-      - Sun, 15 Jul 2012 10:29:51 GMT
-      Cache-Control:
-      - private, max-age=0
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      Server:
-      - GSE
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: US-ASCII
-      string: ! '<HTML>
-
-        <HEAD>
-
-        <TITLE>Moved Temporarily</TITLE>
-
-        </HEAD>
-
-        <BODY BGCOLOR="#FFFFFF" TEXT="#000000">
-
-        <H1>Moved Temporarily</H1>
-
-        The document has moved <A HREF="http://www.chinadaily.com.cn/usa/business/2011-11/08/content_14057648.htm">here</A>.
-
-        </BODY>
-
-        </HTML>
-
-'
-    http_version: !!null 
-  recorded_at: Sun, 15 Jul 2012 10:32:38 GMT
-- request:
-    method: get
-    uri: http://www.chinadaily.com.cn/usa/business/2011-11/08/content_14057648.htm
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - ! '*/*'
-      User-Agent:
-      - Ruby
+      - Typhoeus - https://github.com/typhoeus/typhoeus
   response:
     status:
       code: 200
       message: OK
     headers:
-      Date:
-      - Sun, 15 Jul 2012 10:29:51 GMT
-      Server:
-      - Apache
-      Accept-Ranges:
-      - bytes
-      Vary:
-      - Accept-Encoding
-      Content-Length:
-      - '16834'
       Content-Type:
-      - text/html
-      Powered-By-Chinacache:
-      - MISS from USA-CG-1-3T1
+      - text/html; charset=UTF-8
+      Date:
+      - Fri, 06 Sep 2013 20:49:22 GMT
+      Expires:
+      - '-1'
+      Pragma:
+      - no-cache
+      Server:
+      - nginx/1.2.0
+      Set-Cookie:
+      - duo_ab="67f9202b4026f56e386fa1c67896029881f32cd8e30\075"; Path=/
+      - wuuid=30ed1dd7-06a8-4ecc-bda0-3d837b60e78c
+      X-Runtime:
+      - '0.00825'
+      X-Tid:
+      - 03c13626522a30691942
+      X-Ws:
+      - 10.0.3.193
+      Content-Length:
+      - '12249'
       Connection:
-      - close
+      - keep-alive
     body:
       encoding: ASCII-8BIT
-      string: ! "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"\r\n\"http://www.w3.org/TR/html4/loose.dtd\">\r\n<html>\n<head><meta
-        http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>\n<meta
-        http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>\n<meta
-        name=\"robots\" content=\"all\"/>\n<meta name=\"keywords\" content=\"cheating,death,Yintai
-        Real Estate,fund-raising fraud\"/>\n<meta name=\"description\" content=\"Two
-        brothers and their father were sentenced to death on Monday for cheating 15,000
-        investors out of over $1.1 billion in east China's Zhejiang province.\"/>\n<title>
-        Father, two sons sentenced to death for fraud|Markets|chinadaily.com.cn</title>\n<link
-        href=\"../../tplimages/34369.files/article.css\" rel=\"stylesheet\" type=\"text/css\"/>\n<link
-        href=\"../../tplimages/34369.files/multimedia.css\" rel=\"stylesheet\" type=\"text/css\"/>\n<link
-        href=\"../../tplimages/34369.files/popular.css\" rel=\"stylesheet\" type=\"text/css\"/>\n<link
-        href=\"../../tplimages/34369.files/chnanel.css\" rel=\"stylesheet\" type=\"text/css\"/>\n<link
-        href=\"../../tplimages/34369.files/layout.css\" rel=\"stylesheet\" type=\"text/css\"/>\n<script
-        type=\"text/javascript\" language=\"javascript\">\n<!--\ndocument.domain =
-        \"chinadaily.com.cn\";\n-->\n</script>\n</head>\n<body>\n<script src=\"../../../2011js/jquery-1.4a2.min.js\"
-        type=\"text/javascript\">\n</script>\n\n<script src=\"../../../2011js/jquery.KinSlideshow-1.1.js\"
-        type=\"text/javascript\">\n</script>\n\n<script src=\"../../../2011js/showdiv.js\"
-        type=\"text/javascript\">\n</script>\n\n<script language=\"javascript\" src=\"../../../2011js/top_logo.js\"
-        type=\"text/javascript\">\n</script>\n\n<script language=\"javascript\" src=\"../../../2011js/tabs.js\"
-        type=\"text/javascript\">\n</script>\n\n<script language=\"javascript\" src=\"../../../2011js/top_menu.js\"
-        type=\"text/javascript\">\n</script>\n\n<div class=\"main\">\n<div class=\"articl950\">\n<div
-        class=\"left630-articl\">\n<div class=\"navigation\" style=\"border-top-width:
-        3px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style:
-        dashed; border-top-color: #13B3D3; border-bottom-color:#13B3D3; \"><Font class=\"\"><Font
-        class=\"\">Business</Font></Font>\n/ Markets\n</div>\n\n<!--AdForward Begin:-->\n<script
-        type=\"text/javascript\" src=\"http://chinadaily.allyes.com/main/adfshow?user=ChinaDailyNetwork|USUltimatepage|USultimatepage_600_80_1&#38;db=chinadaily&#38;border=0&#38;local=yes&#38;js=ie\"
-        charset=\"gb2312\">\n</script>\n\n<!--AdForward End-->\n \n\n<div class=\"articl\">\n<div
-        id=\"Title_e\">\n<h2> Father, two sons sentenced to death for fraud</h2>\n<h5
-        style=\"background-color:#E4F4E9; \"> Updated: 2011-11-08 13:23</h5>\n<h3>
-        (Xinhua)</h3>\n\n</div>\n\n<table width=\"600\" height=\"21\" border=\"0\"
-        cellpadding=\"0\" cellspacing=\"0\">\n<tr>\n<td height=\"10\"></td>\n</tr>\n\n<tr>\n<td
-        bgcolor=\"#CCCCCC\" height=\"1\"></td>\n</tr>\n\n<tr>\n<td height=\"19\" bgcolor=\"#EBEBEB\">\n<table
-        width=\"497\" height=\"19\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\"
-        class=\"a9\">\n<tr>\n<td width=\"5\">&#160;</td>\n<td width=\"18\"><img src=\"http://usa.chinadaily.com.cn/business/tplimages/34369.files/icons_print.gif\"
-        width=\"13\" height=\"15\" border=\"0\"/></td>\n<td width=\"45\"><a href=\"javascript:Print()\">Print</a></td>\n<td
-        width=\"18\"><img src=\"http://usa.chinadaily.com.cn/business/tplimages/34369.files/icon-mail.gif\"
-        width=\"14\" height=\"11\" border=\"0\"/></td>\n<td width=\"45\"><a onclick=\"javascript:window.open
-        ('http://app3.chinadaily.com.cn/webdev/PageRcmdToMail.shtml?url='+document.location+'&#38;title='+document.title,
-        'newwindow', 'height=380, width=480');\">Mail</a></td>\n<td width=\"25\"><img
-        src=\"http://usa.chinadaily.com.cn/business/tplimages/34369.files/icon-font.gif\"
-        width=\"19\" height=\"14\" border=\"0\"/></td>\n<td width=\"234\"><a href=\"javascript:doZoom(16)\">Large</a>
-        <a href=\"javascript:doZoom(14)\">Medium</a>&#160; <a href=\"javascript:doZoom(12)\">Small</a></td>\n<td
-        width=\"53\" valign=\"middle\"><a class=\"bshareDiv\" href=\"http://www.bshare.cn/share\">分享按钮</a>
-        \n\n<script language=\"javascript\" type=\"text/javascript\" src=\"http://www.bshare.cn/button.js#uuid=a92f8285-36fe-4168-8f86-8e177d015e67&#38;style=999&#38;img=http%3a%2f%2fwww.chinadaily.com.cn%2f2011images%2ficon-bshare1.gif&#38;bp=bsharesync,sinaminiblog,qqmb,kaixin001,renren,qzone,sohuminiblog,neteasemb,douban,sohubai,hexunmb,twitter,facebook,myspace,linkedin,reddit,diigo,delicious&#38;lang=en&#38;logo=false&#38;h=16&#38;w=49&#38;sc=true\">\n</script>\n\n
-        </td>\n<td width=\"36\"><span class=\"BSHARE_COUNT\" style=\"font-size:13px;\">0</span>
-        </td>\n</tr>\n</table>\n</td>\n</tr>\n\n<tr>\n<td bgcolor=\"#CCCCCC\" height=\"1\"></td>\n</tr>\n</table>\n\n<div
-        class=\"articl-sub\" id=\"Content\"><!--enpproperty <date>2011-11-08 13:23:16.0</date><author></author><title>Father,
-        two sons sentenced to death for fraud</title><keyword>cheating,death,Yintai
-        Real Estate,fund-raising fraud</keyword><subtitle></subtitle><introtitle></introtitle><siteid>181</siteid><nodeid>1063204</nodeid><nodename>Markets</nodename><nodesearchname>2@usa</nodesearchname>/enpproperty--><!--enpcontent-->
-        <p>HANGZHOU - Two brothers and their father were sentenced to death on Monday
-        for cheating 15,000 investors out of over $1.1 billion in east China's Zhejiang
-        province. </p>\n<p>Ji Wenhua, president of the Yintai Real Estate and Investment
-        Group, was sentenced to death for the crime of fund-raising fraud, said the
-        Intermediate People's Court in the city of Lishui, where the company was based.
-        </p>\n<p>However, his brother, Ji Shengjun, and father, Ji Linqing, could
-        be spared execution as their death penalties have a two-year reprieve. </p>\n<p>The
-        family, along with others, had illegally raised over 7.04 billion yuan ($1.12
-        billion) between 2003 and 2008 before they were taken into police custody
-        in 2008, holding the truth from investors that their company had been losing
-        money for years, according to the court. </p>\n<p>A third brother, Ji Yongjun,
-        was sentenced to life imprisonment. </p>\n<p>The four men also had their political
-        rights deprived for life and personal property confiscated. </p>\n<p>The court
-        also sentenced two other people involved in the case to three years in prison
-        each.</p><!--/enpcontent-->\n</div>\n</div>\n\n<!--AdForward Begin:-->\n<script
-        type=\"text/javascript\" src=\"http://chinadaily.allyes.com/main/adfshow?user=ChinaDailyNetwork|USUltimatepage|USultimatepage_600_80_2&#38;db=chinadaily&#38;border=0&#38;local=yes&#38;js=ie\"
-        charset=\"gb2312\">\n</script>\n\n<!--AdForward End-->\n</div>\n\n<div class=\"right310\">\n<div
-        class=\"moretop\" style=\"width:309px; \">\n<h1><a href=\"../../../node_1040183.htm\"
-        target=\"_blank\" class=\"\">Today's Top News</a>\n</h1>\n\n\n<h2><a href=\"../../../china/2011-11/08/content_14053382.htm\"
-        target=\"_blank\">Premier calls for closer regional ties</a></h2>\n\n<h2><a
-        href=\"../../../us/2011-11/08/content_14055134.htm\" target=\"_blank\">US
-        urged to respect diversity</a></h2>\n\n<h2><a href=\"../../../world/2011-11/08/content_14053302.htm\"
-        target=\"_blank\">Nuclear report to echo US concerns</a></h2>\n\n<h2><a href=\"content_14054679.htm\"
-        target=\"_blank\">CEOs say they are confident</a></h2>\n\n<h2><a href=\"../../../world/2011-11/07/content_14046666.htm\"
-        target=\"_blank\">US: Sect bomb attacks possible in Nigeria</a></h2>\n\n<h2><a
-        href=\"../../../china/2011-11/07/content_14046086.htm\" target=\"_blank\">A
-        town that gambled on a change</a></h2>\n\n<h2><a href=\"../../../china/2011-11/07/content_14049487.htm\"
-        target=\"_blank\">Chinese President to attend APEC summit</a></h2>\n\n<h2><a
-        href=\"../07/content_14048084.htm\" target=\"_blank\">Poor employment affects
-        growth in China: Report</a></h2>\n\n</div>\n\n<div class=\"box_gray\" style=\"padding-top:0px;\">\n<div
-        id=\"item2\">\n<ul id=\"tabBar2\">\n<li style=\"width:43px;\"><a href=\"../../../video/index.html\"
-        class=\"current\"><span>Video</span></a></li>\n\n<li style=\"width:40px;\"><a
-        href=\"../../../photo/slides.html\"><span>Slide</span></a></li>\n\n<li style=\"width:57px;\"><a
-        href=\"../../../photo/index.html\"><span>Photos</span></a></li>\n</ul>\n\n<div
-        class=\"show\" id=\"world_1\">\n<table width=\"280\" border=\"0\" align=\"center\"
-        cellpadding=\"0\" cellspacing=\"0\">\n<tr>\n<td width=\"140\"><a href=\"http://www.chinadaily.com.cn/video/2011-11/07/content_14051297.htm\"
-        target=\"_blank\"><img src=\"../../attachement/jpg/site241/20111107/b8ac6f4a8ec71021ea3917.jpg\"
-        border=\"0\" width=\"130\" height=\"83\"/></a> \n\n<h3><img src=\"http://www.chinadaily.com.cn/2011images/icon-video1.gif\"/><a
-        href=\"http://www.chinadaily.com.cn/video/2011-11/07/content_14051297.htm\"
-        target=\"_blank\">Across America Nov 4th, 2011</a></h3>\n</td>\n<td width=\"140\"><a
-        href=\"http://www.chinadaily.com.cn/video/2011-11/07/content_14052017.htm\"
-        target=\"_blank\"><img src=\"../../attachement/jpg/site241/20111107/b8ac6f4a8ec71021ea6718.jpg\"
-        border=\"0\" width=\"130\" height=\"83\"/></a> \n\n<h3><img src=\"http://www.chinadaily.com.cn/2011images/icon-video1.gif\"/><a
-        href=\"http://www.chinadaily.com.cn/video/2011-11/07/content_14052017.htm\"
-        target=\"_blank\">Contest inspires Chinese new media</a></h3>\n</td>\n</tr>\n</table>\n\n</div>\n\n<div
-        id=\"world_2\">\n<table width=\"280\" border=\"0\" align=\"center\" cellpadding=\"0\"
-        cellspacing=\"0\">\n<tr>\n<td width=\"140\"><a href=\"../../../photo/2011-11/08/content_14055462.htm\"
-        target=\"_blank\"><img src=\"../../attachement/jpg/site1/20111108/f04da2db14841022cb8406.jpg\"
-        border=\"0\" width=\"130\" height=\"83\"/></a> \n\n<h3><img src=\"http://www.chinadaily.com.cn/2011images/icon-video1.gif\"/><a
-        href=\"../../../photo/2011-11/08/content_14055462.htm\" target=\"_blank\">In
-        photos: World Weightlifting Championships</a></h3>\n</td>\n<td width=\"140\"><a
-        href=\"../../../photo/2011-11/02/content_14018764.htm\" target=\"_blank\"><img
-        src=\"../../attachement/jpg/site1/20111102/f04da2db1484101aba1e01.jpg\" border=\"0\"
-        width=\"130\" height=\"83\"/></a> \n\n<h3><img src=\"http://www.chinadaily.com.cn/2011images/icon-video1.gif\"/><a
-        href=\"../../../photo/2011-11/02/content_14018764.htm\" target=\"_blank\">Slide:
-        China Fashion Week</a></h3>\n</td>\n</tr>\n</table>\n\n</div>\n\n<div id=\"world_4\">\n<table
-        width=\"280\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\n<tr>\n<td
-        width=\"140\"><a href=\"../../../photo/2011-10/27/content_13990676.htm\" target=\"_blank\"><img
-        src=\"../../attachement/jpg/site181/20111028/bc305b9c61e110149bca17.jpg\"
-        border=\"0\" width=\"130\" height=\"83\"/></a> \n\n<h3><img src=\"http://www.chinadaily.com.cn/2011images/icon-photo.gif\"/><a
-        href=\"../../../photo/2011-10/27/content_13990676.htm\" target=\"_blank\">Autumn
-        photos: A symphony of colors</a></h3>\n</td>\n<td width=\"140\"><a href=\"../../../photo/2011-10/27/content_13988909.htm\"
-        target=\"_blank\"><img src=\"../../attachement/jpg/site181/20111027/bc305b9c61e110135cd028.jpg\"
-        border=\"0\" width=\"130\" height=\"83\"/></a> \n\n<h3><img src=\"http://www.chinadaily.com.cn/2011images/icon-photo.gif\"/><a
-        href=\"../../../photo/2011-10/27/content_13988909.htm\" target=\"_blank\">Photographer
-        — Yi Hui</a></h3>\n</td>\n</tr>\n</table>\n\n</div>\n</div>\n</div>\n\n<!--AdForward
-        Begin:-->\n<script type=\"text/javascript\" src=\"http://chinadaily.allyes.com/main/adfshow?user=ChinaDailyNetwork|USUltimatepage|USultimatepage_300_250_1&#38;db=chinadaily&#38;border=0&#38;local=yes&#38;js=ie\"
-        charset=\"gb2312\">\n</script>\n\n<!--AdForward End-->\n \n\n<div class=\"box_gray\">\n<h6>Hot
-        Topics</h6>\n\n\n<h4><a href=\"../../../china/2011-09/08/content_13646495.htm\"
-        target=\"_blank\">Billionaires in China,</a> <a href=\"../../2011-09/13/content_13671485.htm\"
-        target=\"_blank\">RMB's appreciation ,</a> <a href=\"../../../china/2011-09/13/content_13671511.htm\"
-        target=\"_blank\">Shortage of life-saving heart drug,</a> <a href=\"../../../us/2011-09/11/content_13666675.htm\"
-        target=\"_blank\">9/11 anniversary,</a> <a href=\"../../../us/2011-09/09/content_13655838.htm\"
-        target=\"_blank\">Biden talks China,</a></h4>\n\n</div>\n\n<div class=\"box_gray\"
-        style=\"padding-top:0px;\">\n<h6>Editor's Picks</h6>\n\n\n<table width=\"280\"
-        border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\n<tr>\n<td
-        width=\"140\"><a href=\"../../../weekly/2011-11/04/content_14035374.htm\"
-        target=\"_blank\"><img src=\"../../attachement/jpg/site181/20111104/b8ac6f4a88cd101dd4b41d.jpg\"
-        border=\"0\" width=\"130\" height=\"83\"/></a> \n\n<h5><img src=\"http://usa.chinadaily.com.cn/2011img/icon-photo.gif\"/><a
-        href=\"../../../weekly/2011-11/04/content_14035374.htm\" target=\"_blank\">Knots
-        of fortune</a></h5>\n</td>\n<td width=\"140\"><a href=\"../../../life/2011-11/04/content_14039201.htm\"
-        target=\"_blank\"><img src=\"http://usa.chinadaily.com.cn/business/attachement/gif/site181/20111104/b8ac6f9374f6101dd23f0c.gif\"
-        border=\"0\" width=\"130\" height=\"83\"/></a> \n\n<h5><img src=\"http://usa.chinadaily.com.cn/2011img/icon-photo.gif\"/><a
-        href=\"../../../life/2011-11/04/content_14039201.htm\" target=\"_blank\">Landscape
-        power</a></h5>\n</td>\n</tr>\n</table>\n\n<table width=\"280\" border=\"0\"
-        align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\n<tr>\n<td width=\"140\"><a
-        href=\"../../../weekly/2011-11/04/content_14035375.htm\" target=\"_blank\"><img
-        src=\"../../attachement/jpg/site181/20111104/b8ac6f4a88cd101dd7f539.jpg\"
-        border=\"0\" width=\"130\" height=\"83\"/></a> \n\n<h5><img src=\"http://usa.chinadaily.com.cn/2011img/icon-photo.gif\"/><a
-        href=\"../../../weekly/2011-11/04/content_14035375.htm\" target=\"_blank\">Let's
-        take a taxi</a></h5>\n</td>\n<td width=\"140\"><a href=\"../../../weekly/2011-11/04/content_14035490.htm\"
-        target=\"_blank\"><img src=\"../../attachement/jpg/site181/20111104/b8ac6f4a88cd101dd65734.jpg\"
-        border=\"0\" width=\"130\" height=\"83\"/></a> \n\n<h5><img src=\"http://usa.chinadaily.com.cn/2011img/icon-photo.gif\"/><a
-        href=\"../../../weekly/2011-11/04/content_14035490.htm\" target=\"_blank\">With
-        thanks to Shanghai</a></h5>\n</td>\n</tr>\n</table>\n\n<table width=\"280\"
-        border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\n<tr>\n<td
-        width=\"140\"><a href=\"../../../weekly/2011-11/04/content_14035406.htm\"
-        target=\"_blank\"><img src=\"../../attachement/jpg/site181/20111104/b8ac6f4a88cd101dd5c82f.jpg\"
-        border=\"0\" width=\"130\" height=\"83\"/></a> \n\n<h5><img src=\"http://usa.chinadaily.com.cn/2011img/icon-photo.gif\"/><a
-        href=\"../../../weekly/2011-11/04/content_14035406.htm\" target=\"_blank\">The
-        China geek</a></h5>\n</td>\n<td width=\"140\"><a href=\"../../../weekly/2011-11/04/content_14035405.htm\"
-        target=\"_blank\"><img src=\"../../attachement/jpg/site181/20111104/b8ac6f4a88cd101dd52f23.jpg\"
-        border=\"0\" width=\"130\" height=\"83\"/></a> \n\n<h5><img src=\"http://usa.chinadaily.com.cn/2011img/icon-photo.gif\"/><a
-        href=\"../../../weekly/2011-11/04/content_14035405.htm\" target=\"_blank\">The
-        big cheese</a></h5>\n</td>\n</tr>\n</table>\n\n</div>\n</div>\n</div>\n</div>\n\n<script
-        language=\"javascript\" src=\"../../../2011js/2011foot.js\" type=\"text/javascript\">\n</script>\n\n<script
-        type=\"text/javascript\" language=\"javascript\">\n<!--\n            function
-        Print()\n{\n     \n        var Title_e=document.all.Title_e.innerHTML;\n    var
-        Content = document.all.Content.innerHTML;\n\n\nvar PartI='<div align=\"left\"
-        style=\"width:800px; background-color:#ffffff;padding-left:10px; padding-bottom:10px;\"><img
-        src=\"http://www.chinadaily.com.cn/image_e/logo_cdcomcn_1.gif\" width=\"410\"
-        height=\"55\"><\\/div>';\n\nvar PartIII= '<div style=\"width:800px;background-color:#ffffff;padding-left:10px;
-        padding-bottom:10px; font-family:Verdana, Arial, Helvetica, sans-serif;font-size:1.5em\">'+Title_e+'<\\/div>';\nvar
-        PartIV= '<div align=\"left\" style=\"width:800px; background-color:#ffffff;
-        padding-bottom:10px; padding-left:10px;\">'+Content+'<div align=\"center\"
-        style=\"margin-top:20px;\">Copyright By chinadaily.com.cn. All rights reserved<\\/div><\\/div>';\n\ndocument.body.innerHTML
-        =PartI+PartIII+PartIV;\nwindow.print();\n\n}\n-->\n</script>\n\n<script type=\"text/javascript\"
-        language=\"javascript\">\n<!--\n              function docmtend() {\ndocument.articleformend.url.value
-        = document.location;\ndocument.articleformend.title.value = document.title;\ndocument.articleformend.submit();\n}\ndocument.write(\"<form
-        name=\\\"articleformend\\\" action=\\\"http://comment.chinadaily.com.cn/articlecmt.shtml\\\"
-        target=\\\"_top\\\">\");\ndocument.write(\"<input type=\\\"hidden\\\" name=\\\"url\\\">\");\ndocument.write(\"<input
-        type=\\\"hidden\\\" name=\\\"title\\\">\");\ndocument.write(\"<\\/form>\");\n-->\n</script>\n\n<script
-        language=\"JavaScript\" type=\"text/javascript\">\n<!--\n//<![CDATA[\nfunction
-        GetObj(objName){\n    if(document.getElementById){\n        return eval('document.getElementById(\"'
-        + objName + '\")');\n    }else if(document.layers){\n        return eval(\"document.layers['\"
-        + objName +\"']\");\n    }else{\n        return eval('document.all.' + objName);\n
-        \   }\n}\n//========================= 设置字体大中小 start =============\n    function
-        doZoom(size){\n        var artibody = GetObj('Content');\n        if(!artibody){\n
-        \           return;\n        }\n        var artibodyChild = artibody.childNodes;\n
-        \       artibody.style.fontSize = size + 'px';\n        //再对artibody div内的直接html节点设置fontSize属性\n
-        \       for(var i = 0; i < artibodyChild.length; i++){\n            if(artibodyChild[i].nodeType
-        == 1){\n                artibodyChild[i].style.fontSize = size + 'px';\n            }\n
-        \       }       \n    }\n//========================= 设置字体大中小 end =============\n
-        \   \n//]]>\n  \n-->\n</script>\n</body>\n</html>"
-    http_version: !!null 
-  recorded_at: Sun, 15 Jul 2012 10:32:39 GMT
-recorded_with: VCR 2.2.3
+      string: !binary |-
+        PCFET0NUWVBFIGh0bWw+CjwhLS1baWYgbHQgSUUgNyBdPiA8aHRtbCBjbGFz
+        cz0iaWU2Ij4gPCFbZW5kaWZdLS0+CjwhLS1baWYgSUUgNyBdPiAgICA8aHRt
+        bCBjbGFzcz0iaWU3Ij4gPCFbZW5kaWZdLS0+CjwhLS1baWYgSUUgOCBdPiAg
+        ICA8aHRtbCBjbGFzcz0iaWU4Ij4gPCFbZW5kaWZdLS0+CjwhLS1baWYgSUUg
+        OSBdPiAgICA8aHRtbCBjbGFzcz0iaWU5Ij4gPCFbZW5kaWZdLS0+CjwhLS1b
+        aWYgKGd0IElFIDkpfCEoSUUpXT48IS0tPiA8aHRtbCBjbGFzcz0iIj4gPCEt
+        LTwhW2VuZGlmXS0tPgo8aGVhZD4KICAgIDxtZXRhIGh0dHAtZXF1aXY9IkNv
+        bnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PXV0Zi04
+        Ij4KICAgIDxsaW5rIHJlbD0iY2hyb21lLXdlYnN0b3JlLWl0ZW0iIGhyZWY9
+        Imh0dHBzOi8vY2hyb21lLmdvb2dsZS5jb20vd2Vic3RvcmUvZGV0YWlsL2Fp
+        YWhtaWpscGVoZW1jcGxlaWNoa2Nva2hlZ2xsZmpsIj4KICAgIDxtZXRhIG5h
+        bWU9ImZyYWdtZW50IiBjb250ZW50PSIhIj4KICAgIAogICAgCgogICAgICAg
+        IDx0aXRsZT5EdW9saW5nbyB8IExlYXJuIFNwYW5pc2gsIEZyZW5jaCwgR2Vy
+        bWFuLCBQb3J0dWd1ZXNlLCBJdGFsaWFuIGFuZCBFbmdsaXNoIGZvciBmcmVl
+        PC90aXRsZT4KICAgICAgICA8bWV0YSBuYW1lPSJEZXNjcmlwdGlvbiIgaWQ9
+        Im1ldGEtZGVzY3JpcHRpb24iIGNvbnRlbnQ9IkxlYXJuIGxhbmd1YWdlcyBj
+        b21wbGV0ZWx5IGZyZWUsIHdpdGhvdXQgYWRzIG9yIGhpZGRlbiBjaGFyZ2Vz
+        LiBJdCdzIGZ1biwgZWFzeSwgYW5kIHNjaWVudGlmaWNhbGx5IHByb3Zlbi4i
+        PgogICAgICAgIDxtZXRhIG5hbWU9ImtleXdvcmRzIiBjb250ZW50PSJsZWFy
+        biwgc3BhbmlzaCwgZ2VybWFuLCBmcmVuY2gsIHBvcnR1Z3Vlc2UsIGl0YWxp
+        YW4sIGVuZ2xpc2gsIGZyZWUsIGxlc3NvbnMsIGNvdXJzZSwgbGFuZ3VhZ2Us
+        IHN0dWR5LCBmbGFzaGNhcmRzIj4KICAgICAgICA8bGluayByZWw9InN0eWxl
+        c2hlZXQiIGhyZWY9Ii8vZDdtajRhcWZzY2ltMi5jbG91ZGZyb250Lm5ldC9z
+        My9jc3MvYzIzYjAwMmMwZjIxZGE0NGNlYWQwYzZiMjY1MGJjMDBfbXZfZTdm
+        MTUyYzMyZjg4MTMwOThkMDhjZTBjYTEzNmMyOWIubWluLmNzcyIgLz4KICAg
+        ICAgICA8bGluayByZWw9InN0eWxlc2hlZXQiIGhyZWY9Ii8vZDdtajRhcWZz
+        Y2ltMi5jbG91ZGZyb250Lm5ldC9zMy9jc3MvM2I3NGFkNzAzNmM5ZDdhZDI4
+        YzI4NWJmNWFiNTIzOGZfbXZfZTdmMTUyYzMyZjg4MTMwOThkMDhjZTBjYTEz
+        NmMyOWIubWluLmNzcyIgLz4KICAgICAgICA8bGluayByZWw9InN0eWxlc2hl
+        ZXQiIGhyZWY9Ii8vZDdtajRhcWZzY2ltMi5jbG91ZGZyb250Lm5ldC9zMy9j
+        c3MvODA5NTY2MzJjNWM1OTk3ZTJjZjgyYjg2ZTcxM2JmMjNfbXZfZTdmMTUy
+        YzMyZjg4MTMwOThkMDhjZTBjYTEzNmMyOWIubWluLmNzcyIgLz4KICAgIDxs
+        aW5rIGhyZWY9Ii9pbWFnZXMvZmF2aWNvbi5pY28iIHJlbD0ic2hvcnRjdXQg
+        aWNvbiIgdHlwZT0iaW1hZ2UveC1pY29uIiAvPgoKICAgICAgICA8c2NyaXB0
+        IHNyYz0iLy9kN21qNGFxZnNjaW0yLmNsb3VkZnJvbnQubmV0L3MzL2pzLzU4
+        ODY4MTRiOTQ5ZGM2MjJmNTRhZGRjY2ExMGVjMWJhX212Xy5taW4uanMiPjwv
+        c2NyaXB0PgogICAgICAgIDxzY3JpcHQgc3JjPSIvL2Q3bWo0YXFmc2NpbTIu
+        Y2xvdWRmcm9udC5uZXQvczMvanMvYjE5ZDMwMzU1NWIzMGE0NmUxZWI2OGZl
+        MjQ1MmQwMjBfbXZfLm1pbi5qcyI+PC9zY3JpcHQ+CgoKICAgIDxzY3JpcHQg
+        dHlwZT0idGV4dC9qYXZhc2NyaXB0Ij4KICAgICAgICAoZnVuY3Rpb24oKXsK
+        ICAgICAgICAgICAgdmFyIGNvbnNvbGVfc3R1ZmY9WyJsb2ciLCJkZWJ1ZyIs
+        ImluZm8iLCJ3YXJuIiwiZXJyb3IiLCJhc3NlcnQiXTsKICAgICAgICAgICAg
+        d2luZG93LmNvbnNvbGU9IHdpbmRvdy5jb25zb2xlIHx8IHt9OwogICAgICAg
+        ICAgICBmb3IodmFyIGk9MDsgaSA8IGNvbnNvbGVfc3R1ZmYubGVuZ3RoOyBp
+        KyspewogICAgICAgICAgICAgICAgd2luZG93LmNvbnNvbGVbY29uc29sZV9z
+        dHVmZltpXV09d2luZG93LmNvbnNvbGVbY29uc29sZV9zdHVmZltpXV0gfHwg
+        ZnVuY3Rpb24oKXt9OwogICAgICAgICAgICB9CiAgICAgICAgfSgpKTsKICAg
+        ICAgICBmdW5jdGlvbiBvblNpZ25JbkNhbGxiYWNrKGF1dGhSZXN1bHQpIHsK
+        ICAgICAgICAgICQoJyNhdXRoLWNhbGxiYWNrJykuY2xpY2soKTsKICAgICAg
+        ICB9OwogICAgPC9zY3JpcHQ+CiAgICA8dGl0bGU+RHVvbGluZ288L3RpdGxl
+        PgogICAgPHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPgogICAgICAg
+        IGR1by51aV9sYW5ndWFnZXMgPSBbeyJsYW5ndWFnZV9uYW1lIjogIkZyYW5c
+        dTAwZTdhaXMiLCAibGFuZ3VhZ2UiOiAiZnIifSwgeyJsYW5ndWFnZV9uYW1l
+        IjogIlBvcnR1Z3VcdTAwZWFzIiwgImxhbmd1YWdlIjogInB0In0sIHsibGFu
+        Z3VhZ2VfbmFtZSI6ICJFc3BhXHUwMGYxb2wiLCAibGFuZ3VhZ2UiOiAiZXMi
+        fSwgeyJsYW5ndWFnZV9uYW1lIjogIkl0YWxpYW5vIiwgImxhbmd1YWdlIjog
+        Iml0In1dOwogICAgICAgIGR1by51aV9sYW5ndWFnZV9uYW1lID0gIkVuZ2xp
+        c2giOwogICAgICAgIGR1by5icm93c2VyX2xhbmd1YWdlID0gImVuIjsKICAg
+        ICAgICBkdW8uYXZhaWxhYmxlX2xhbmd1YWdlcyA9IFt7ImZyb21faW5mbyI6
+        ICIoSSBrbm93IEVuZ2xpc2gpIiwgImlfd2FudF90b19sZWFybiI6ICJJIHdh
+        bnQgdG8gbGVhcm4iLCAia2V5IjogImVzIiwgInNwYWNlIjogIiAiLCAibGVh
+        cm5pbmdfbGFuZ3VhZ2UiOiAiZXMiLCAiZnJvbV91aSI6IHRydWUsICJmcm9t
+        X2xhbmd1YWdlIjogImVuIiwgImxlYXJuaW5nX2xhbmd1YWdlX25hbWUiOiAi
+        U3BhbmlzaCJ9LCB7ImZyb21faW5mbyI6ICIoSSBrbm93IEVuZ2xpc2gpIiwg
+        Imlfd2FudF90b19sZWFybiI6ICJJIHdhbnQgdG8gbGVhcm4iLCAia2V5Ijog
+        ImRlIiwgInNwYWNlIjogIiAiLCAibGVhcm5pbmdfbGFuZ3VhZ2UiOiAiZGUi
+        LCAiZnJvbV91aSI6IHRydWUsICJmcm9tX2xhbmd1YWdlIjogImVuIiwgImxl
+        YXJuaW5nX2xhbmd1YWdlX25hbWUiOiAiR2VybWFuIn0sIHsiZnJvbV9pbmZv
+        IjogIihJIGtub3cgRW5nbGlzaCkiLCAiaV93YW50X3RvX2xlYXJuIjogIkkg
+        d2FudCB0byBsZWFybiIsICJrZXkiOiAiZnIiLCAic3BhY2UiOiAiICIsICJs
+        ZWFybmluZ19sYW5ndWFnZSI6ICJmciIsICJmcm9tX3VpIjogdHJ1ZSwgImZy
+        b21fbGFuZ3VhZ2UiOiAiZW4iLCAibGVhcm5pbmdfbGFuZ3VhZ2VfbmFtZSI6
+        ICJGcmVuY2gifSwgeyJmcm9tX2luZm8iOiAiKEkga25vdyBFbmdsaXNoKSIs
+        ICJpX3dhbnRfdG9fbGVhcm4iOiAiSSB3YW50IHRvIGxlYXJuIiwgImtleSI6
+        ICJpdCIsICJzcGFjZSI6ICIgIiwgImxlYXJuaW5nX2xhbmd1YWdlIjogIml0
+        IiwgImZyb21fdWkiOiB0cnVlLCAiZnJvbV9sYW5ndWFnZSI6ICJlbiIsICJs
+        ZWFybmluZ19sYW5ndWFnZV9uYW1lIjogIkl0YWxpYW4ifSwgeyJmcm9tX2lu
+        Zm8iOiAiKEkga25vdyBFbmdsaXNoKSIsICJpX3dhbnRfdG9fbGVhcm4iOiAi
+        SSB3YW50IHRvIGxlYXJuIiwgImtleSI6ICJwdCIsICJzcGFjZSI6ICIgIiwg
+        ImxlYXJuaW5nX2xhbmd1YWdlIjogInB0IiwgImZyb21fdWkiOiB0cnVlLCAi
+        ZnJvbV9sYW5ndWFnZSI6ICJlbiIsICJsZWFybmluZ19sYW5ndWFnZV9uYW1l
+        IjogIlBvcnR1Z3Vlc2UifSwgeyJmcm9tX2luZm8iOiAiKGplIHBhcmxlIGZy
+        YW5cdTAwZTdhaXMpIiwgImlfd2FudF90b19sZWFybiI6ICJKZSB2ZXV4IGFw
+        cHJlbmRyZSBsJyIsICJrZXkiOiAiZnItZW4iLCAic3BhY2UiOiAiIiwgImxl
+        YXJuaW5nX2xhbmd1YWdlIjogImVuIiwgImZyb21fdWkiOiBmYWxzZSwgImZy
+        b21fbGFuZ3VhZ2UiOiAiZnIiLCAibGVhcm5pbmdfbGFuZ3VhZ2VfbmFtZSI6
+        ICJhbmdsYWlzIn0sIHsiZnJvbV9pbmZvIjogIihldSBzZWkgUG9ydHVndVx1
+        MDBlYXMpIiwgImlfd2FudF90b19sZWFybiI6ICJRdWVybyBhcHJlbmRlciIs
+        ICJrZXkiOiAicHQtZW4iLCAic3BhY2UiOiAiICIsICJsZWFybmluZ19sYW5n
+        dWFnZSI6ICJlbiIsICJmcm9tX3VpIjogZmFsc2UsICJmcm9tX2xhbmd1YWdl
+        IjogInB0IiwgImxlYXJuaW5nX2xhbmd1YWdlX25hbWUiOiAiSW5nbFx1MDBl
+        YXMifSwgeyJmcm9tX2luZm8iOiAiKHlvIHNcdTAwZTkgZXNwYVx1MDBmMW9s
+        KSIsICJpX3dhbnRfdG9fbGVhcm4iOiAiUXVpZXJvIGFwcmVuZGVyIiwgImtl
+        eSI6ICJlcy1lbiIsICJzcGFjZSI6ICIgIiwgImxlYXJuaW5nX2xhbmd1YWdl
+        IjogImVuIiwgImZyb21fdWkiOiBmYWxzZSwgImZyb21fbGFuZ3VhZ2UiOiAi
+        ZXMiLCAibGVhcm5pbmdfbGFuZ3VhZ2VfbmFtZSI6ICJpbmdsXHUwMGU5cyJ9
+        LCB7ImZyb21faW5mbyI6ICIoaW8gcGFybG8gaXRhbGlhbm8pIiwgImlfd2Fu
+        dF90b19sZWFybiI6ICJWb2dsaW8gaW1wYXJhcmUiLCAia2V5IjogIml0LWVu
+        IiwgInNwYWNlIjogIiAiLCAibGVhcm5pbmdfbGFuZ3VhZ2UiOiAiZW4iLCAi
+        ZnJvbV91aSI6IGZhbHNlLCAiZnJvbV9sYW5ndWFnZSI6ICJpdCIsICJsZWFy
+        bmluZ19sYW5ndWFnZV9uYW1lIjogImluZ2xlc2UifV07CiAgICAgICAgZHVv
+        LnNlYXJjaF9ob3N0ID0gJ3d3dy5kdW9saW5nby5jb20nOwogICAgICAgIGR1
+        by5ib2R5X2NsYXNzID0gInNwbGFzaC0yMDEzIjsKCiAgICAgICAgZHVvLmpz
+        X3ZlcnNpb24gPSAnLy9kN21qNGFxZnNjaW0yLmNsb3VkZnJvbnQubmV0L3Mz
+        L2pzLzU4ODY4MTRiOTQ5ZGM2MjJmNTRhZGRjY2ExMGVjMWJhX212Xy5taW4u
+        anMtLy9kN21qNGFxZnNjaW0yLmNsb3VkZnJvbnQubmV0L3MzL2pzL2IxOWQz
+        MDM1NTViMzBhNDZlMWViNjhmZTI0NTJkMDIwX212Xy5taW4uanMnOwogICAg
+        ICAgIGR1by5mYl9hcHBfaWQgPSAnMjM0NTM2NDM2NjA5MzAzJzsKICAgICAg
+        ICBkdW8uYWJfb3B0aW9ucyA9IHt9OwoKICAgICAgICAgd2luZG93LmZiQXN5
+        bmNJbml0ID0gZnVuY3Rpb24oKSB7CiAgICAgICAgICAgICBGQi5pbml0KHsK
+        ICAgICAgICAgICAgICAgYXBwSWQgICAgICA6IGR1by5mYl9hcHBfaWQsIC8v
+        IEFwcCBJRAogICAgICAgICAgICAgICBjb29raWUgICAgIDogdHJ1ZSwgLy8g
+        ZW5hYmxlIGNvb2tpZXMgdG8gYWxsb3cgdGhlIHNlcnZlciB0byBhY2Nlc3Mg
+        dGhlIHNlc3Npb24KICAgICAgICAgICAgICAgb2F1dGggICAgICA6IHRydWUs
+        IC8vIGVuYWJsZSBPQXV0aCAyLjAKICAgICAgICAgICAgICAgeGZibWwgICAg
+        ICA6IHRydWUgIC8vIHBhcnNlIFhGQk1MLAogICAgICAgICAgICAgfSk7CiAg
+        ICAgICAgIH07CgogICAgICAgIC8vIExvYWQgdGhlIEZCIFNESyBBc3luY2hy
+        b25vdXNseQogICAgICAgIChmdW5jdGlvbihkKXsKICAgICAgICAgICAgdmFy
+        IGpzLCBpZCA9ICdmYWNlYm9vay1qc3Nkayc7IGlmIChkLmdldEVsZW1lbnRC
+        eUlkKGlkKSkge3JldHVybjt9CiAgICAgICAgICAgIGpzID0gZC5jcmVhdGVF
+        bGVtZW50KCdzY3JpcHQnKTsganMuaWQgPSBpZDsganMuYXN5bmMgPSB0cnVl
+        OwogICAgICAgICAgICBqcy5zcmMgPSAiLy9jb25uZWN0LmZhY2Vib29rLm5l
+        dC9lbl9VUy9hbGwuanMiOwogICAgICAgICAgICBkLmdldEVsZW1lbnRzQnlU
+        YWdOYW1lKCdoZWFkJylbMF0uYXBwZW5kQ2hpbGQoanMpOwogICAgICAgICB9
+        KGRvY3VtZW50KSk7CgogICAgICAgICAkKGRvY3VtZW50KS5yZWFkeShmdW5j
+        dGlvbigpIHsKICAgICAgICAgICAgIG1peHBhbmVsLnJlZ2lzdGVyKHt9KTsK
+        ICAgICAgICAgICAgIG1peHBhbmVsLnRyYWNrKCJzcGxhc2ggbG9hZCIpOwoK
+        ICAgICAgICAgICAgICQoJy5kZXNrdG9wLWxpbmsnKS5jbGljayhmdW5jdGlv
+        bigpIHsKICAgICAgICAgICAgICAgICAkKCcubW9iaWxlLXNwbGFzaCcpLnJl
+        bW92ZSgpOwogICAgICAgICAgICAgICAgICQoJy5oaWRkZW4tYnktYXBwJyku
+        c2hvdygpOwoKICAgICAgICAgICAgICAgICB2YXIgdXJsID0gd2luZG93Lmxv
+        Y2F0aW9uLmhyZWY7CiAgICAgICAgICAgICAgICAgdmFyIGhhc2hfaW5kZXgg
+        PSB1cmwuaW5kZXhPZignIycpOwogICAgICAgICAgICAgICAgIHZhciBoYXNo
+        ID0gJyc7CiAgICAgICAgICAgICAgICAgaWYoaGFzaF9pbmRleCA+IDApIHsK
+        ICAgICAgICAgICAgICAgICAgICBoYXNoID0gdXJsLnN1YnN0cmluZyhoYXNo
+        X2luZGV4KTsKICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAg
+        d2luZG93LmxvY2F0aW9uLmhyZWYgPSB3aW5kb3cubG9jYXRpb24ub3JpZ2lu
+        KycvP2Rlc2t0b3AnK2hhc2g7CiAgICAgICAgICAgICB9KTsKICAgICAgICAg
+        fSk7CgogICAgICAgICQuZ2V0U2NyaXB0KCcvL3BsYXRmb3JtLnR3aXR0ZXIu
+        Y29tL3dpZGdldHMuanMnKTsKICAgIDwvc2NyaXB0PgogICAgPCEtLSBzdGFy
+        dCBNaXhwYW5lbCAtLT48c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCI+
+        KGZ1bmN0aW9uKGMsYSl7dmFyIGIsZCxoLGU7Yj1jLmNyZWF0ZUVsZW1lbnQo
+        InNjcmlwdCIpO2IudHlwZT0idGV4dC9qYXZhc2NyaXB0IjtiLmFzeW5jPSEw
+        O2Iuc3JjPSgiaHR0cHM6Ij09PWMubG9jYXRpb24ucHJvdG9jb2w/Imh0dHBz
+        OiI6Imh0dHA6IikrJy8vYXBpLm1peHBhbmVsLmNvbS9zaXRlX21lZGlhL2pz
+        L2FwaS9taXhwYW5lbC4yLmpzJztkPWMuZ2V0RWxlbWVudHNCeVRhZ05hbWUo
+        InNjcmlwdCIpWzBdO2QucGFyZW50Tm9kZS5pbnNlcnRCZWZvcmUoYixkKTth
+        Ll9pPVtdO2EuaW5pdD1mdW5jdGlvbihiLGMsZil7ZnVuY3Rpb24gZChhLGIp
+        e3ZhciBjPWIuc3BsaXQoIi4iKTsyPT1jLmxlbmd0aCYmKGE9YVtjWzBdXSxi
+        PWNbMV0pO2FbYl09ZnVuY3Rpb24oKXthLnB1c2goW2JdLmNvbmNhdChBcnJh
+        eS5wcm90b3R5cGUuc2xpY2UuY2FsbChhcmd1bWVudHMsMCkpKX19dmFyIGc9
+        YTsidW5kZWZpbmVkIiE9PXR5cGVvZiBmP2c9CmFbZl09W106Zj0ibWl4cGFu
+        ZWwiO2cucGVvcGxlPWcucGVvcGxlfHxbXTtoPSJkaXNhYmxlIHRyYWNrIHRy
+        YWNrX3BhZ2V2aWV3IHRyYWNrX2xpbmtzIHRyYWNrX2Zvcm1zIHJlZ2lzdGVy
+        IHJlZ2lzdGVyX29uY2UgdW5yZWdpc3RlciBpZGVudGlmeSBuYW1lX3RhZyBz
+        ZXRfY29uZmlnIHBlb3BsZS5zZXQgcGVvcGxlLmluY3JlbWVudCIuc3BsaXQo
+        IiAiKTtmb3IoZT0wO2U8aC5sZW5ndGg7ZSsrKWQoZyxoW2VdKTthLl9pLnB1
+        c2goW2IsYyxmXSl9O2EuX19TVj0xLjE7d2luZG93Lm1peHBhbmVsPWF9KShk
+        b2N1bWVudCx3aW5kb3cubWl4cGFuZWx8fFtdKTsKbWl4cGFuZWwuaW5pdCgi
+        MjE3OGUwZGY2ZjQxM2FmYjhjNDNhZmUzYmJkMTNmMDQiKTsKCiAgICAgICAg
+        CiAgICA8L3NjcmlwdD48IS0tIGVuZCBNaXhwYW5lbCAtLT4KICAgIDxtZXRh
+        IG5hbWU9Imdvb2dsZS1zaXRlLXZlcmlmaWNhdGlvbiIgY29udGVudD0ibld5
+        VENEUnc0VkpTX2I2WVNSWmlGbW1qNTZFYXdacFpNaEh0S1h0N2xrVSIgLz4K
+        ICAgIDxzY3JpcHQ+CiAgICBpZiAoTWF0aC5yYW5kb20oKSA8IDAuMykgewog
+        ICAgICAgIHZhciBfcHJ1bSA9IFtbJ2lkJywgJzUxODA1M2FhYWJlNTNkZjI3
+        ZTAwMDAwMCddLAogICAgICAgICAgICAgICAgICAgICBbJ21hcmsnLCAnZmly
+        c3RieXRlJywgKG5ldyBEYXRlKCkpLmdldFRpbWUoKV1dOwogICAgICAgIChm
+        dW5jdGlvbigpIHsKICAgICAgICAgICAgdmFyIHMgPSBkb2N1bWVudC5nZXRF
+        bGVtZW50c0J5VGFnTmFtZSgnc2NyaXB0JylbMF0KICAgICAgICAgICAgICAs
+        IHAgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzY3JpcHQnKTsKICAgICAg
+        ICAgICAgcC5hc3luYyA9ICdhc3luYyc7CiAgICAgICAgICAgIHAuc3JjID0g
+        Jy8vcnVtLXN0YXRpYy5waW5nZG9tLm5ldC9wcnVtLm1pbi5qcyc7CiAgICAg
+        ICAgICAgIHMucGFyZW50Tm9kZS5pbnNlcnRCZWZvcmUocCwgcyk7CiAgICAg
+        ICAgfSkoKTsKICAgIH0KICAgIDwvc2NyaXB0PgoKPHNjcmlwdCB0eXBlPSJ0
+        ZXh0L2phdmFzY3JpcHQiPgogICAgKGZ1bmN0aW9uKCkgewogICAgICAgIHZh
+        ciBwbyA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ3NjcmlwdCcpOyBwby50
+        eXBlID0gJ3RleHQvamF2YXNjcmlwdCc7IHBvLmFzeW5jID0gdHJ1ZTsKICAg
+        ICAgICBwby5zcmMgPSAnaHR0cHM6Ly9hcGlzLmdvb2dsZS5jb20vanMvY2xp
+        ZW50OnBsdXNvbmUuanM/b25sb2FkPXJlbmRlckJ1dHRvbic7CiAgICAgICAg
+        dmFyIHMgPSBkb2N1bWVudC5nZXRFbGVtZW50c0J5VGFnTmFtZSgnc2NyaXB0
+        JylbMF07IHMucGFyZW50Tm9kZS5pbnNlcnRCZWZvcmUocG8sIHMpOwogICAg
+        fSkoKTsKICAgIGZ1bmN0aW9uIHJlbmRlckJ1dHRvbigpIHsKICAgICAgICBn
+        YXBpLnNpZ25pbi5yZW5kZXIoJ2dwbHVzU2lnbkluJywgewogICAgICAgICAg
+        ICAnY2FsbGJhY2snOiBvblNpZ25JbkNhbGxiYWNrLAogICAgICAgICAgICAn
+        Y2xpZW50aWQnOiAnNDUwMjk4Njg2MDY1LmFwcHMuZ29vZ2xldXNlcmNvbnRl
+        bnQuY29tJywKICAgICAgICAgICAgJ2Nvb2tpZXBvbGljeSc6ICJzaW5nbGVf
+        aG9zdF9vcmlnaW4iLAogICAgICAgICAgICAnc2NvcGUnOiAiaHR0cHM6Ly93
+        d3cuZ29vZ2xlYXBpcy5jb20vYXV0aC91c2VyaW5mby5lbWFpbCBodHRwczov
+        L3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL3BsdXMubWUiLAogICAgICAgICAg
+        ICAnYXBwcGFja2FnZW5hbWUnOiAnY29tLmR1b2xpbmdvJwogICAgICAgIH0p
+        OwogICAgfQo8L3NjcmlwdD4KPC9oZWFkPgoKPGJvZHkgY2xhc3M9Imdsb2Jh
+        bC1lbiBsb2dnZWQtb3V0IHNwbGFzaC0yMDEzIiA+CiAgICA8ZGl2IGlkPSJm
+        Yi1yb290Ij48L2Rpdj4KICAgIDxkaXYgaWQ9InRvcGJhciIgY2xhc3M9IiI+
+        CiAgICA8L2Rpdj4KICAgIDxkaXYgaWQ9InNpdGUiIGNsYXNzPSIiPgogICAg
+        ICAgIDxkaXYgaWQ9IndyYXBwZXIiPgogICAgICAgICAgICA8ZGl2IGNsYXNz
+        PSJsb2dnZWQtb3V0LW1lc3NhZ2UiIHN0eWxlPSJ3aWR0aDogOTgwcHg7Ij4K
+        ICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIDxkaXYgaWQ9ImFwcCIg
+        Y2xhc3M9IiI+CiAgICAgICAgICAgIDwvZGl2PgogICAgICAgIDwvZGl2Pgog
+        ICAgICAgIDxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0Ij4KICAgICAg
+        ICAgICAgZHVvLnplbmRlc2tfaWRzID0geydlbi1lcyc6IDIwMTQ3MDUzLCAn
+        ZW4tcHQnOiAyMDE1NTIyNiwgJ2VuLWl0JzogMjAxNTY0NDcsICdlbi1kZSc6
+        IDIwMTU2Mzg3LCAnZW4tZnInOiAyMDE0NTEyMSwKICAgICAgICAgICAgICAg
+        ICAgICAgICAgICAgICAgICdlcy1lbic6IDIwMTUyOTU2LCAncHQtZW4nOiAy
+        MDE1NDM4NywgJ2l0LWVuJzogMjAxNDI3OTEsICdmci1lbic6IDIwMTc1ODU4
+        LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJ2VuLW5vbmUnOiAy
+        MDE0NzIwMywgJ3B0LW5vbmUnOiAyMDE1NTE5OCwgJ2l0LW5vbmUnOiAyMDE1
+        NTQxNiwgJ2VzLW5vbmUnOiAyMDE1NTQwNiwgJ2ZyLW5vbmUnOiAyMDE3NTgz
+        OH07CiAgICAgICAgICAgIChmdW5jdGlvbigpIHsKICAgICAgICAgICAgICAg
+        ICAgICB2YXIgdWlfbGFuZ3VhZ2UgPSAnZW4nOwogICAgICAgICAgICAgICAg
+        ICAgIHZhciBsZWFybmluZ19sYW5ndWFnZSA9ICdub25lJzsKICAgICAgICAg
+        ICAgICAgIAogICAgICAgICAgICAgICAgdmFyIGlkID0gZHVvLnplbmRlc2tf
+        aWRzW3VpX2xhbmd1YWdlICsgJy0nICsgbGVhcm5pbmdfbGFuZ3VhZ2VdOwog
+        ICAgICAgICAgICAgICAgaWYgKHplbl9vcHQpCiAgICAgICAgICAgICAgICAg
+        ICAgWmVuYm94LnVwZGF0ZSh7J2Ryb3Bib3hJRCc6IDIwMTU1NDE2fSk7CiAg
+        ICAgICAgICAgICAgICB2YXIgemVuX29wdCA9IHsKICAgICAgICAgICAgICAg
+        ICAgZHJvcGJveElEOiAgIGlkLAogICAgICAgICAgICAgICAgICB1cmw6ICAg
+        ICAgICAgImh0dHBzOi8vZHVvbGluZ290ZXN0LnplbmRlc2suY29tIiwKICAg
+        ICAgICAgICAgICAgICAgdGFiSUQ6ICAgICAgICJGZWVkYmFjayIsCiAgICAg
+        ICAgICAgICAgICAgIHRhYkNvbG9yOiAgICAiYmxhY2siLAogICAgICAgICAg
+        ICAgICAgICB0YWJQb3NpdGlvbjogIkxlZnQiLAogICAgICAgICAgICAgICAg
+        ICBoaWRlX3RhYjogInRydWUiCiAgICAgICAgICAgICAgICAgICAgICAgICAg
+        ICAgICAgICB9OwogICAgICAgICAgICAgICAgJC5nZXRTY3JpcHQoJy8vYXNz
+        ZXQwLnplbmRlc2suY29tL2V4dGVybmFsL3plbmJveC92Mi41L3plbmJveC5q
+        cycsIGZ1bmN0aW9uKCkgewogICAgICAgICAgICAgICAgICAgIF8uZGVmZXIo
+        ZnVuY3Rpb24oKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIFplbmJveC5p
+        bml0KHplbl9vcHQpOwogICAgICAgICAgICAgICAgICAgIH0pOwogICAgICAg
+        ICAgICAgICAgfSk7CiAgICAgICAgICAgIH0pKCk7CiAgICAgICAgPC9zY3Jp
+        cHQ+CgogICAgICAgIDxkaXYgaWQ9IndyYXBwZWQtc3VwcG9ydCI+CiAgICAg
+        ICAgICAgIDxkaXYgaWQ9InN1cHBvcnQtYnV0dG9uIiBvbkNsaWNrPSJaZW5i
+        b3guc2hvdygpOyByZXR1cm4gZmFsc2U7Ij5TdXBwb3J0PC9kaXY+CiAgICAg
+        ICAgPC9kaXY+ICAgIDwvZGl2PgogICAgPGZvb3RlciBjbGFzcz0ibWFpbiAi
+        PjxkaXYgY2xhc3M9ImNoYW5nZS1sYW5ndWFnZS1kYXJrIiA+CiAgICA8dWwg
+        Y2xhc3M9Imxhbmd1YWdlcyBoaWRkZW4iIHN0eWxlPSJkaXNwbGF5OiBub25l
+        Ij4KICAgICAgICA8YSBocmVmPSJmciI+PGxpIGNsYXNzPSd1aS1sYW5ndWFn
+        ZS1vcHRpb24nIGRhdGEtdmFsdWU9J2ZyJz5GcmFuw6dhaXM8L2xpPjwvYT4K
+        ICAgICAgICA8YSBocmVmPSJwdCI+PGxpIGNsYXNzPSd1aS1sYW5ndWFnZS1v
+        cHRpb24nIGRhdGEtdmFsdWU9J3B0Jz5Qb3J0dWd1w6pzPC9saT48L2E+CiAg
+        ICAgICAgPGEgaHJlZj0iZXMiPjxsaSBjbGFzcz0ndWktbGFuZ3VhZ2Utb3B0
+        aW9uJyBkYXRhLXZhbHVlPSdlcyc+RXNwYcOxb2w8L2xpPjwvYT4KICAgICAg
+        ICA8YSBocmVmPSJpdCI+PGxpIGNsYXNzPSd1aS1sYW5ndWFnZS1vcHRpb24n
+        IGRhdGEtdmFsdWU9J2l0Jz5JdGFsaWFubzwvbGk+PC9hPgogICAgPC91bD4K
+        ICAgIDxkaXYgY2xhc3M9ImN1cnJlbnQiPkxhbmd1YWdlOiA8c3Ryb25nPkVu
+        Z2xpc2g8L3N0cm9uZz48L2Rpdj4KPC9kaXY+Cgo8ZGl2IGNsYXNzPSJpbm5l
+        ciI+CiAgICA8cCBjbGFzcz0iIj7CqSAyMDEzIER1b2xpbmdvPC9wPgogICAg
+        PHVsPgogICAgICAgIDwhLS08bGk+PGEgaHJlZj0iIy90cmFuc2xhdGVfam9i
+        cyIgdGFiaW5kZXg9IjIwMCI+VHJhbnNsYXRlPC9hPjwvbGk+LS0+CiAgICAg
+        ICAgPGxpPjxhIGhyZWY9IiMvaW5mbyIgdGFiaW5kZXg9IjEwMCI+QWJvdXQ8
+        L2E+PC9saT4KICAgICAgICA8bGk+PGEgaHJlZj0iIy90ZXJtcyIgdGFiaW5k
+        ZXg9IjEwMCI+VGVybXM8L2E+PC9saT4KICAgICAgICA8bGk+PGEgaHJlZj0i
+        Iy9ndWlkZWxpbmVzIiB0YWJpbmRleD0iMTAwIj5HdWlkZWxpbmVzPC9hPjwv
+        bGk+CiAgICAgICAgPGxpPjxhIGhyZWY9IiMvcHJpdmFjeSIgdGFiaW5kZXg9
+        IjEwMCI+UHJpdmFjeTwvYT48L2xpPgogICAgICAgIDxsaT48YSBocmVmPSIj
+        L2pvYnMiIHRhYmluZGV4PSIxMTAiPkpvYnM8L2E+PC9saT4KICAgICAgICA8
+        bGk+PGEgaHJlZj0iaHR0cDovL2Jsb2cuZHVvbGluZ28uY29tIiB0YWJpbmRl
+        eD0iMTIwIj5CbG9nPC9hPjwvbGk+CiAgICAgICAgPGxpPjxhIGhyZWY9Imh0
+        dHA6Ly90d2l0dGVyLmNvbS9kdW9saW5nbyIgdGFiaW5kZXg9IjEzMCI+PHNw
+        YW4gY2xhc3M9Imljb24tdHdpdHRlciI+PC9zcGFuPlR3aXR0ZXI8L2E+PC9s
+        aT4KICAgICAgICA8bGk+PGEgaHJlZj0iaHR0cDovL2ZhY2Vib29rLmNvbS9k
+        dW9saW5nbyIgdGFiaW5kZXg9IjE0MCI+PHNwYW4gY2xhc3M9Imljb24tZmFj
+        ZWJvb2siPjwvc3Bhbj5GYWNlYm9vazwvYT48L2xpPgogICAgPC91bD4KPC9k
+        aXY+PC9mb290ZXI+CiAgICA8c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlw
+        dCI+CgogICAgIHZhciBfZ2FxID0gX2dhcSB8fCBbXTsKICAgICBfZ2FxLnB1
+        c2goWydfc2V0QWNjb3VudCcsICdVQS0yMTU5NTgxNC0xJ10pOwogICAgIF9n
+        YXEucHVzaChbJ190cmFja1BhZ2V2aWV3J10pOwoKICAgICAoZnVuY3Rpb24o
+        KSB7CiAgICAgICB2YXIgZ2EgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdz
+        Y3JpcHQnKTsgZ2EudHlwZSA9CiAgICAndGV4dC9qYXZhc2NyaXB0JzsgZ2Eu
+        YXN5bmMgPSB0cnVlOwogICAgICAgZ2Euc3JjID0gKCdodHRwczonID09IGRv
+        Y3VtZW50LmxvY2F0aW9uLnByb3RvY29sID8gJ2h0dHBzOi8vc3NsJyA6CiAg
+        ICAnaHR0cDovL3d3dycpICsgJy5nb29nbGUtYW5hbHl0aWNzLmNvbS9nYS5q
+        cyc7CiAgICAgICB2YXIgcyA9IGRvY3VtZW50LmdldEVsZW1lbnRzQnlUYWdO
+        YW1lKCdzY3JpcHQnKVswXTsKICAgIHMucGFyZW50Tm9kZS5pbnNlcnRCZWZv
+        cmUoZ2EsIHMpOwogICAgIH0pKCk7CgogICAgPC9zY3JpcHQ+CjwvYm9keT4K
+        CjwvaHRtbD4K
+    http_version: 
+  recorded_at: Fri, 06 Sep 2013 20:49:24 GMT
+recorded_with: VCR 2.5.0
