@@ -27,4 +27,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "webmock"
   
   s.add_runtime_dependency "bitly"
+  s.add_runtime_dependency "typhoeus"
 end

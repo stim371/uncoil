@@ -1,23 +1,24 @@
 require 'spec_helper'
-require 'uncoil'
 
-describe "the response object", :vcr => { :cassette_name => "isgd_response" } do
+describe Uncoil::Response, :vcr => { :cassette_name => 'isgd_response' } do
   
-  subject { Uncoil.expand("http://is.gd/gbKNRq") }
+  subject { Uncoil.expand('http://is.gd/gbKNRq') }
   
-  it "should return a response object" do
+  it 'should return a response object' do
     subject.class.should eq Uncoil::Response
   end
   
-  it "should respond to getter methods" do
+  it 'should respond to getter methods' do
     lambda{subject.long_url}.should_not raise_error
     lambda{subject.short_url}.should_not raise_error
     lambda{subject.error}.should_not raise_error
   end
-  
-  it "should throw errors for unrecognized methods" do
-    # not sure if I really need this
-    lambda{subject.not_a_method}.should raise_error
+
+  describe 'response body' do
+    it 'should assign variables correctly' do
+      subject.long_url.should eq 'http://www.google.com'
+      subject.short_url.should eq 'http://is.gd/gbKNRq'
+      subject.error.should be_nil
+    end
   end
-  
 end
