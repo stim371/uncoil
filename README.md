@@ -4,7 +4,7 @@
 
 The uncoil gem is a one stop shop for un-shortening urls.
 
-The idea is based off of my site http://uncoil.me and I built this as part of my UWE-Ruby fall project.
+I built this as part of my UWE-Ruby fall project.
 
 ### Why the heck does this exist?
 This gem is all about transparency, safety and knowing where you are going on the internet.
